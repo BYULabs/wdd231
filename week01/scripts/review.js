@@ -13,14 +13,13 @@ function getCelsius(fahrenheit) {
 
 // Set up the Date format object parameter for toLocaleDateString method.
 const options = {
-		weekday: "long",
-		day: "numeric",
-		month: "long",
-		year: "numeric"
-	};
+	month: "short",
+	day: "2-digit",
+	year: "numeric"
+};
 
 // Question #1
-today1.innerHTML = new Date().toLocaleDateString("en-UK", options);
+today1.innerHTML = new Date().toLocaleDateString("en-US", options);
 
 // Question #2
 today2.innerHTML = "<strong>Volume</strong>: " + volume + " liters";
