@@ -28,9 +28,15 @@ today2.innerHTML = `<strong>Volume</strong>: ${volume} liters`;
 const quantity = document.querySelector('#q').value;
 
 // Question #4
+message.textContent = "Welcome to our neighborhood!"
 
 // Question #5
+document.querySelector('#temp').value = getCelsius(33);
 
 // Question #6
+const divs = document.querySelectorAll('div');
+document.querySelector('#divs').textContent = `Total number of divs: ${divs.length}`;
 
 // Question #7
+const filterC = citynames.filter(city => city.startsWith("C"));
+document.querySelector('#c-names').textContent = filterC.join(", ");
