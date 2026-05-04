@@ -25,6 +25,7 @@ today1.innerHTML = new Date().toLocaleDateString("en-US", options);
 today2.innerHTML = `<strong>Volume</strong>: ${volume} liters`;
 
 // Question #3
+const quantity = document.querySelector('#q').value;
 
 // Question #4
 
