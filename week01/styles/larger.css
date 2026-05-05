@@ -7,6 +7,10 @@
         margin: 0 auto;
     }
 
+    header {
+        padding-top: 10px;
+    }
+
     .header {
         grid-template-columns: 24px auto;
     }

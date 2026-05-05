@@ -13,7 +13,7 @@ deep stale blue: #3D405B
 header {
     display: grid;
     grid-template-columns: 24px auto 44px;
-    padding: 5px 0 5px 10px;
+    padding: 0 0 10px 10px;
     align-items: end;
     border-bottom: solid 1px #ddd;
     column-gap: 8px;
