@@ -1,0 +1,44 @@
+@media only screen and (min-width: 40rem) {
+    header {
+        padding: 1.25rem 1rem 0;
+    }
+
+    .header-inter {
+        align-items: center;
+        padding-bottom: 1rem;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+    .navigation {
+        display: block;
+        background: #2c3e50;
+    }
+
+    .navigation ul {
+        display: flex;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .navigation li {
+        flex: 1;
+    }
+
+    .navigation a {
+        padding: 1rem 1.25rem;
+        text-align: center;
+        border-bottom: 3px solid transparent;
+    }
+
+    .navigation a:hover {
+        background-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .navigation a.current {
+        background-color: rgba(255, 255, 255, 0.08);
+        border-bottom-color: white;
+    }
+}
