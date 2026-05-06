@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Josefin Sans", sans-serif;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-weight: 400;
+    line-height: 1.6;
+    color: #2c3e50;
+    background-color: #ecf0f1;
+}
+
+/* 
+    Header Styles 
+    */
+
+header {
+    background: #1f2937;
+    color: white;
+    padding: 1rem;
+    position: relative;
+}
+
+.header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 0.9rem;
+}
+
+header img {
+    padding: 0.4rem;
+}
+
+.site-heading {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.site-heading span {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.site-heading p {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.78);
+}
