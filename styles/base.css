@@ -118,12 +118,12 @@ header img {
 }
 
 .navigation a:hover {
-    background-color: rgba(255, 255, 255, 0.08);
+    background-color: rgba(52, 152, 219, 0.25);
     padding-left: 1.5rem;
 }
 
 .navigation a.current {
-    background-color: rgba(52, 152, 219, 0.2);
+    background-color: rgba(52, 152, 219, 0.35);
     font-weight: 700;
 }
 
@@ -154,7 +154,7 @@ section {
 section h2 {
     font-size: 1.8rem;
     margin-bottom: 1rem;
-    color: #3498db;
+    color: #2471a3;
 }
 
 section p {
@@ -189,9 +189,9 @@ section img {
 
 .filter-buttons button:hover,
 .filter-buttons button.active {
-    background-color: #3498db;
+    background-color: #2874a6;
     color: white;
-    border-color: #3498db;
+    border-color: #1e5a8e;
 }
 
 .courses-container {
