@@ -112,11 +112,13 @@ function displayCourses() {
         }
 
         courseCard.innerHTML = `
-            <h3>${course.subject} ${course.number}: ${course.title}</h3>
-            <p class="credits">Credits: ${course.credits}</p>
-            <p>${course.description}</p>
-            <p class="tech">Technologies: ${course.technology.join(', ')}</p>
-            ${course.completed ? '<p class="completion-badge">✓ Completed</p>' : ''}
+            <a href="https://github.com/BYULabs/${course.subject.toLocaleLowerCase()}${course.number}" class="card-link" target="_blank">
+                <h3>${course.subject} ${course.number}: ${course.title}</h3>
+                <p class="credits">Credits: ${course.credits}</p>
+                <p>${course.description}</p>
+                <p class="tech">Technologies: ${course.technology.join(', ')}</p>
+                ${course.completed ? '<p class="completion-badge">✓ Completed</p>' : ''}
+            </a>
         `;
 
         container.appendChild(courseCard);
