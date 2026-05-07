@@ -194,6 +194,74 @@ section img {
     border-color: #3498db;
 }
 
+.courses-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.course-card {
+    background-color: #f9f9f9;
+    border: 2px solid #bdc3c7;
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.course-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.course-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.course-card .credits {
+    font-weight: 700;
+    color: #3498db;
+    margin-bottom: 0.5rem;
+}
+
+.course-card p {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.course-card .tech {
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    font-style: italic;
+}
+
+.course-card.completed {
+    border-left: 5px solid #27ae60;
+    background-color: #f0fdf4;
+}
+
+.course-card.completed .completion-badge {
+    background: #27ae60;
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-weight: 700;
+    display: inline-block;
+    margin-top: 0.5rem;
+}
+
+#total-credits {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #3498db;
+    text-align: center;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
 /* 
     Footer 
     */

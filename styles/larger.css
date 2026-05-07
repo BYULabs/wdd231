@@ -65,4 +65,12 @@
     main section:nth-child(4) {
         grid-column: 1 / -1;
     }
+
+    .courses-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .filter-buttons {
+        justify-content: center;
+    }
 }
