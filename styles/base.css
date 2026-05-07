@@ -73,7 +73,7 @@ header img {
     color: white;
     cursor: pointer;
     font-family: Verdana, Geneva, Tahoma, san-serif;
-    transition: transform 0.25 ease;
+    transition: transform 0.25s ease;
 }
 
 .hamburger::before {
@@ -124,6 +124,7 @@ header img {
 
 .navigation a.current {
     background-color: rgba(52, 152, 219, 0.35);
+    color: white;
     font-weight: 700;
 }
 
