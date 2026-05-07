@@ -128,6 +128,49 @@ header img {
 }
 
 /* 
+    Main Content
+    */
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+main h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 3px solid #3498db;
+    padding-bottom: 1rem;
+}
+
+section {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #3498db;
+}
+
+section p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    margin: 1rem auto;
+}
+
+/* 
     Footer 
     */
 
