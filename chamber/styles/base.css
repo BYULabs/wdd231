@@ -1,0 +1,116 @@
+/* ========================================
+   CUMBAYA.CITY - BASE STYLES
+   Mobile-First Responsive Design
+   ======================================== */
+
+/* ========== CSS VARIABLES / COLOR SCHEME ========== */
+:root {
+    /* Primary Colors */
+    --color-primary: #5a7c59;
+    --color-secondary: #d4b896;
+
+    /* Neutral Colors */
+    --color-dark: #2a2a28;
+    --color-light: #fafaf8;
+
+    /* Typography */
+    --font-heading: "Montserrat", sans-serif;
+    --font-body: "Lato", sans-serif;
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+}
+
+/* ========== GLOBAL STYLES ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-dark);
+    background-color: var(--color-light);
+    line-height: 1.6;
+}
+
+/* ========== TYPOGRAPHY ========== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-dark);
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+p {
+    margin-bottom: var(--spacing-sm);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ========== HEADER & NAVIGATION ========== */
+header {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    padding: var(--spacing-md);
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-md);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    flex: 1;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    background-color: var(--color-light);
+    padding: 4px;
+}
+
+.site-heading h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--color-light);
+}
+
+.tagline {
+    font-size: 0.85rem;
+    color: var(--color-secondary);
+    font-family: var(--font-body);
+    margin: 0;
+    font-weight: 400;
+}
