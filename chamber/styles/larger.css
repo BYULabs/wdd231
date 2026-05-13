@@ -1,0 +1,45 @@
+/* ========================================
+   CUMBAYA.CITY - DESKTOP STYLES
+   Larger screens: 1000px+
+   ======================================== */
+
+@media (min-width: 1000px) {
+    /* ========== HEADER & NAVIGATION ========== */
+    .header-inner {
+        gap: var(--spacing-lg);
+    }
+
+    .site-heading h1 {
+        font-size: 2rem;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+    .navigation {
+        max-height: none;
+        background-color: var(--color-primary);
+        overflow: visible;
+    }
+
+    .navigation ul {
+        flex-direction: row;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .navigation a {
+        padding: var(--spacing-md) var(--spacing-lg);
+        border-bottom: none;
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+        color: var(--color-light);
+        font-weight: 500;
+    }
+
+    .navigation a:hover,
+    .navigation a.current {
+        background-color: var(--color-secondary);
+        color: var(--color-dar);
+    }
+}
