@@ -74,4 +74,8 @@
         justify-content: center;
         text-align: right;
     }
+
+    .footer-bottom p {
+        margin-bottom: 0.5rem;
+    }
 }
