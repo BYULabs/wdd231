@@ -216,6 +216,7 @@ footer {
 
 .footer-content {
     max-width: 1200px;
+    margin: 0 auto var(--spacing-lg);
     display: flex;
     flex-direction: column;
     gap: var(--spacing-lg);
