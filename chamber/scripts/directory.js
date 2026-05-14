@@ -7,7 +7,7 @@ let businesses = [];
 
 async function loadBusinesses() {
     try {
-        const response = await fetch('/chamber/data/members.json');
+        const response = await fetch('https://byulabs.github.io/wdd231/chamber/data/members.json');
         const data = await response.json();
         businesses = data.businesses;
         renderDirectory();
