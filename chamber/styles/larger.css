@@ -43,6 +43,11 @@
         color: var(--color-dar);
     }
 
+    /* ========== TYPOGRAPHY ========== */
+    h2 {
+        font-size: 2.5rem;
+    }
+
     /* ========== DIRECTORY SECTION - GRID LAYOUT ========== */
     .directory-grid {
         grid-template-columns: repeat(3, 1fr);
