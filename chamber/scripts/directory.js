@@ -13,7 +13,10 @@ async function loadBusinesses() {
         renderDirectory();
     } catch (error) {
         console.error('Error loading business data:', error);
-        directoryContainer.innerHTML = '<p>Error loading business directory. Please try again later.</p>';
+        directoryContainer.textContent = '';
+        const errorMsg = document.createElement('p');
+        errorMsg.textContent = 'Error loading business directory. Please try again later.';
+        directoryContainer.appendChild(errorMsg);
     }
 }
 
