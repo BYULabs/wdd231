@@ -21,7 +21,7 @@ function createBusinessCard(business) {
     return `
         <article class="business-card">
             <div class="business-logo">${business.logo}</div>
-            <div class="business-content">
+            <div>
                 <h3 class="business-name">${business.name}</h3>
                 <p class="business-category">${business.category}</p>
                 <p class="business-address">${business.address}</p>
