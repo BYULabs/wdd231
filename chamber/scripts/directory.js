@@ -79,4 +79,22 @@ function renderDirectory() {
     });
 }
 
+function setGridView() {
+    currentView = 'grid';
+    directoryContainer.classList.remove('list-view');
+    gridViewBtn.classList.add('active');
+    listViewBtn.classList.remove('active');
+}
+
+function setListView() {
+    currentView = 'list';
+    directoryContainer.classList.add('list-view');
+    listViewBtn.classList.add('active');
+    gridViewBtn.classList.remove('active');
+}
+
+// Event listeners
+gridViewBtn.addEventListener('click', setGridView);
+listViewBtn.addEventListener('click', setListView);
+
 loadBusinesses();

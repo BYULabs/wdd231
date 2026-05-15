@@ -48,6 +48,10 @@
         grid-template-columns: repeat(3, 1fr);
     }
 
+    .directory-grid.list-view .business-card {
+        align-items: flex-start;
+    }
+
     /* ========== FOOTER ========== */
     .footer-content {
         flex-direction: row;
