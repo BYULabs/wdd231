@@ -21,26 +21,62 @@ async function loadBusinesses() {
 }
 
 function createBusinessCard(business) {
-    return `
-        <article class="business-card">
-            <div class="business-logo">${business.logo}</div>
-            <div>
-                <h3 class="business-name">${business.name}</h3>
-                <p class="business-category">${business.category}</p>
-                <p class="business-address">${business.address}</p>
-                <p class="business-phone">
-                    <a href="${business.phoneLink}">${business.phone}</a>
-                </p>
-                <div class="business-website">
-                    <a href="${business.website}" target="_blank" rel="noreferrer">Visit Website →</a>
-                </div>
-            </div>
-        </article>
-    `;
+    const card = document.createElement('article');
+    card.classList.add('business-card');
+
+    const logoDiv = document.createElement('div');
+    logoDiv.classList.add('business-logo');
+    logoDiv.textContent = business.logo;
+
+    const contentDiv = document.createElement('div');
+
+    const name = document.createElement('h3');
+    name.classList.add('business-name');
+    name.textContent = business.name;
+
+    const category = document.createElement('p');
+    category.classList.add('business-category');
+    category.textContent = business.category;
+
+    const address = document.createElement('p');
+    address.classList.add('business-address');
+    address.textContent = business.address;
+
+    const phonePara = document.createElement('p');
+    phonePara.classList.add('business-phone');
+    const phoneLink = document.createElement('a');
+    phoneLink.setAttribute('href', business.phoneLink);
+    phoneLink.textContent = business.phone;
+    phonePara.appendChild(phoneLink);
+
+    const websiteDiv = document.createElement('div');
+    websiteDiv.classList.add('business-website');
+    const webLink = document.createElement('a');
+    webLink.setAttribute('href', business.website);
+    webLink.setAttribute('target', '_blank');
+    webLink.setAttribute('rel', 'noreferrer');
+    webLink.textContent = 'Visit Website →';
+    websiteDiv.appendChild(webLink);
+
+    contentDiv.appendChild(name);
+    contentDiv.appendChild(category);
+    contentDiv.appendChild(address);
+    contentDiv.appendChild(phonePara);
+    contentDiv.appendChild(websiteDiv);
+
+    card.appendChild(logoDiv);
+    card.appendChild(contentDiv);
+
+    return card;
 }
 
 function renderDirectory() {
-    directoryContainer.innerHTML = businesses.map(createBusinessCard).join('');
+    directoryContainer.textContent = '';
+
+    businesses.forEach((business) => {
+        const cardElement = createBusinessCard(business);
+        directoryContainer.appendChild(cardElement);
+    });
 }
 
 loadBusinesses();
