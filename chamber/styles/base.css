@@ -229,7 +229,7 @@ main {
     border-bottom: 2px solid var(--color-accent);
 }
 
-.directory-header h1 {
+.directory-header h2 {
     color: var(--color-primary);
     margin-bottom: var(--spacing-sm);
 }
