@@ -6,7 +6,7 @@
 /* ========== CSS VARIABLES / COLOR SCHEME ========== */
 :root {
     /* Primary Colors */
-    --color-primary: #5a7c59;
+    --color-primary: #364b36;
     --color-secondary: #d4b896;
     --color-accent: #f4d35e;
 
@@ -139,7 +139,7 @@ header {
     font-weight: 700;
     line-height: 1.2;
     margin: 0;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     color: var(--color-light);
 }
 
