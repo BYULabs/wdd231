@@ -40,7 +40,7 @@
     .navigation a:hover,
     .navigation a.current {
         background-color: var(--color-secondary);
-        color: var(--color-dar);
+        color: var(--color-dark);
     }
 
     /* ========== TYPOGRAPHY ========== */
