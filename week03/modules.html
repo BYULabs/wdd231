@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modules Example: Course and Sections</title>
+    <link rel="stylesheet" href="styles/modules.css" />
+    <script src="scripts/modules.js" defer></script>
+  </head>
+
+  <body cz-shortcut-listen="true">
+    <main>
+      <h1 id="courseName">Web Frontend Development I</h1>
+      <h2 id="courseCode">WDD231</h2>
+
+      <div id="enrollment">
+        <label for="sectionNumber"
+          ><span
+            ><b class="bionic-bold">Ch</b><span>oose</span>
+            <b class="bionic-bold">a</b><span></span>
+            <b class="bionic-bold">se</b><span>ction:</span></span
+          ></label
+        >
+        <select id="sectionNumber">
+          <option value="0" disabled="" selected="">--</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+        <button id="enrollStudent">
+          <span
+            ><b class="bionic-bold">En</b><span>roll</span>
+            <b class="bionic-bold">a</b><span></span>
+            <b class="bionic-bold">St</b><span>udent</span></span
+          >
+        </button>
+        <button id="dropStudent">
+          <span
+            ><b class="bionic-bold">Dr</b><span>op</span>
+            <b class="bionic-bold">a</b><span></span>
+            <b class="bionic-bold">St</b><span>udent</span></span
+          >
+        </button>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>
+              <span><b class="bionic-bold">Se</b><span>ction</span></span>
+            </th>
+            <th>
+              <span><b class="bionic-bold">En</b><span>rolled</span></span>
+            </th>
+            <th>
+              <span><b class="bionic-bold">In</b><span>structor</span></span>
+            </th>
+          </tr>
+        </thead>
+        <tbody id="sections">
+          <tr>
+            <td>1</td>
+            <td>88</td>
+            <td>Brother Bingham</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>81</td>
+            <td>Sister Shultz</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>95</td>
+            <td>Sister Smith</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </body>
+</html>
