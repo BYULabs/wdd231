@@ -27,7 +27,7 @@ const byuiCourse = {
       if (add) {
         this.sections[sectionIndex].enrolled++;
       } else {
-        this.sections[sectionNumber].enrolled--;
+        this.sections[sectionIndex].enrolled--;
       }
     }
   },
