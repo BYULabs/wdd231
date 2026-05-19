@@ -3,7 +3,7 @@ const currentTemp = document.querySelector('#current-temp');
 const weatherIcon = document.querySelector('#weather-icon');
 const captionDesc = document.querySelector('figcaption');
 
-const myKey = "YOUR_API_KEY_HERE";
+const myKey = "__OPENWEATHER_API_KEY__";
 const myLat = "49.7779733";
 const myLon = "6.5670597";
 

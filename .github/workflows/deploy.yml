@@ -20,7 +20,7 @@ jobs:
 
             - name: Inject API key
               run: |
-                  sed -i 's/YOUR_API_KEY_HERE/${{ secrets.OPENWEATHER_API_KEY }}/g' week03/scripts/weather.js
+                  sed -i 's/__OPENWEATHER_API_KEY__/${{ secrets.OPENWEATHER_API_KEY }}/g' week03/scripts/weather.js
 
             - name: Setup Pages
               uses: actions/configure-pages@v4
