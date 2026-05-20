@@ -30,7 +30,7 @@ function createBusinessCard(business) {
 
     const contentDiv = document.createElement('div');
 
-    const name = document.createElement('h3');
+    const name = document.createElement('h2');
     name.classList.add('business-name');
     name.textContent = business.name;
 
