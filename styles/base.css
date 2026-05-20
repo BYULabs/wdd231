@@ -222,7 +222,7 @@ section img {
 
 .course-card .credits {
     font-weight: 700;
-    color: #3498db;
+    color: #2879b0;
     margin-bottom: 0.5rem;
 }
 
@@ -233,17 +233,17 @@ section img {
 
 .course-card .tech {
     font-size: 0.9rem;
-    color: #7f8c8d;
+    color: #6a7576;
     font-style: italic;
 }
 
 .course-card.completed {
-    border-left: 5px solid #27ae60;
+    border-left: 5px solid #1d874b;
     background-color: #f0fdf4;
 }
 
 .course-card.completed .completion-badge {
-    background: #27ae60;
+    background: #1d874b;
     color: white;
     padding: 0.2rem 0.6rem;
     border-radius: 4px;
