@@ -43,6 +43,42 @@
         color: var(--color-dark);
     }
 
+    /* ========== MAIN CONTENT - 2 COLUMN LAYOUT ========== */
+    main {
+        padding: var(--spacing-xl) var(--spacing-md);
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    /* ========== HERO SECTION - FULL WIDTH ========== */
+    .hero {
+        grid-column: 1 / -1;
+        padding: var(--spacing-xl) var(--spacing-lg);
+        min-height: 320px;
+    }
+
+    .hero h2 {
+        font-size: 2.5rem;
+    }
+
+    /* ========== EVENTS SECTION - LEFT COLUMN ========== */
+    .events {
+        grid-row: 2 / 4;
+        margin-bottom: 0;
+    }
+
+    .events-container {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+
+    .event-card {
+        display: flex;
+        flex-direction: column;
+    }
+
     /* ========== TYPOGRAPHY ========== */
     .directory-header h1 {
         font-size: 2.5rem;
