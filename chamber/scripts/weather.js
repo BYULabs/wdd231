@@ -16,6 +16,26 @@ const myLon = "-78.4355379";
 
 const url = `https://api.openweathermap.org/data/2.5/weather?lat=${myLat}&lon=${myLon}&appid=${myKey}&units=imperial`;
 
+function convertTime(timestamp) {
+    const date = new Date(timestamp * 1000);
+    return date.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+}
+
+function getWeatherEmoji(iconCode) {
+    const iconMap = {
+        '01d': '☀️', '01n': '🌙',
+        '02d': '⛅', '02n': '☁️',
+        '03d': '☁️', '03n': '☁️',
+        '04d': '☁️', '04n': '☁️',
+        '09d': '🌧️', '09n': '🌧️',
+        '10d': '🌦️', '10n': '🌧️',
+        '11d': '⛈️', '11n': '⛈️',
+        '13d': '❄️', '13n': '❄️',
+        '50d': '🌫️', '50n': '🌫️'
+    };
+    return iconMap[iconCode] || '🌤️';
+}
+
 function displayResults(data) {
     // Current weather
     currentTemp.innerHTML = `${Math.round(data.main.temp)}`;
@@ -23,11 +43,11 @@ function displayResults(data) {
     tempHigh.innerHTML = `${Math.round(data.main.temp_max)}`;
     tempLow.innerHTML = `${Math.round(data.main.temp_min)}`;
     humidity.innerHTML = `${data.main.humidity}`;
-    sunrise.textContent = `${data.sys.sunrise}`;
-    sunset.textContent = `${data.sys.sunset}`;
+    sunrise.textContent = convertTime(data.sys.sunrise);
+    sunset.textContent = convertTime(data.sys.sunset);
     
     // Weather emoji
-    const weatherEmoji = data.weather[0].icon;
+    const weatherEmoji = getWeatherEmoji(data.weather[0].icon);
     weatherIcon.textContent = weatherEmoji;
 }
 
