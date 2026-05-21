@@ -7,7 +7,8 @@
             "phone": "096-351-9001",
             "phoneLink": "https://wa.me/593963519001",
             "website": "https://www.cafecumbaya.ec",
-            "logo": "☕"
+            "logo": "☕",
+            "membership": "gold"
         },
         {
             "name": "Verde Andino Eco-Tours",
@@ -16,7 +17,8 @@
             "phone": "096-351-9002",
             "phoneLink": "https://wa.me/593963519002",
             "website": "https://www.verdeandino.ec",
-            "logo": "🌿"
+            "logo": "🌿",
+            "membership": "silver"
         },
         {
             "name": "Boutique Cumbayá Fashion",
@@ -25,7 +27,8 @@
             "phone": "096-351-9003",
             "phoneLink": "https://wa.me/593963519003",
             "website": "https://www.boutiquecumbaya.ec",
-            "logo": "👗"
+            "logo": "👗",
+            "membership": "gold"
         },
         {
             "name": "Tecnología Cumbayá",
@@ -34,7 +37,8 @@
             "phone": "096-351-9004",
             "phoneLink": "https://wa.me/593963519004",
             "website": "https://www.tecnocumbaya.ec",
-            "logo": "💻"
+            "logo": "💻",
+            "membership": "silver"
         },
         {
             "name": "Restaurante Valle Verde",
@@ -43,7 +47,8 @@
             "phone": "096-351-9005",
             "phoneLink": "https://wa.me/593963519005",
             "website": "https://www.valleverderestaurant.ec",
-            "logo": "🍽️"
+            "logo": "🍽️",
+            "membership": "gold"
         },
         {
             "name": "Studio Yoga & Wellness",
@@ -52,7 +57,8 @@
             "phone": "096-351-9006",
             "phoneLink": "https://wa.me/593963519006",
             "website": "https://www.yogacumbaya.ec",
-            "logo": "🧘"
+            "logo": "🧘",
+            "membership": "silver"
         },
         {
             "name": "Floristería Flores del Valle",
@@ -61,7 +67,8 @@
             "phone": "096-351-9007",
             "phoneLink": "https://wa.me/593963519007",
             "website": "https://www.floresdelvalley.ec",
-            "logo": "🌸"
+            "logo": "🌸",
+            "membership": "bronze"
         },
         {
             "name": "Consultora de Negocios Cumbayá",
@@ -70,7 +77,8 @@
             "phone": "096-351-9008",
             "phoneLink": "https://wa.me/593963519008",
             "website": "https://www.consultacumbaya.ec",
-            "logo": "📊"
+            "logo": "📊",
+            "membership": "gold"
         },
         {
             "name": "Escuela de Idiomas Multilingual",
@@ -79,7 +87,8 @@
             "phone": "096-351-9009",
             "phoneLink": "https://wa.me/593963519009",
             "website": "https://www.multilingual-cumbaya.ec",
-            "logo": "📚"
+            "logo": "📚",
+            "membership": "silver"
         }
     ]
 }
