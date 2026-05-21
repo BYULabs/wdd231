@@ -14,7 +14,8 @@ const myKey = "__OPENWEATHER_API_KEY__";
 const myLat = "-0.2065082";
 const myLon = "-78.4355379";
 
-const url = `https://api.openweathermap.org/data/2.5/weather?lat=${myLat}&lon=${myLon}&appid=${myKey}&units=imperial`;
+const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${myLat}&lon=${myLon}&appid=${myKey}&units=imperial`;
+const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${myLat}&lon=${myLon}&appid=${myKey}&units=imperial`;
 
 function convertTime(timestamp) {
     const date = new Date(timestamp * 1000);
@@ -54,13 +55,22 @@ function displayResults(data) {
 async function apiFetch() {
     try {
         // Fetch current weather
-        const response = await fetch(url);
+        const response = await fetch(weatherUrl);
         if (response.ok) {
-        const data = await response.json();
-        console.log(data);
-        displayResults(data);
+            const data = await response.json();
+            displayResults(data);
         } else {
-        throw Error(await response.text());
+            throw Error(await response.text());
+        }
+
+        // Fetch forecast data
+        const forecastResponse = await fetch(forecastUrl);
+        if (forecastResponse.ok) {
+            const forecastData = await forecastResponse.json();
+            console.log(forecastData);
+            displayForecast(forecastData);
+        } else {
+            throw Error(await forecastResponse.text());
         }
     } catch (error) {
         console.log('Weather API Error:', error);
