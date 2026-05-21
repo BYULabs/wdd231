@@ -329,6 +329,108 @@ main {
     color: var(--color-dark);
 }
 
+/* ========== WEATHER SECTION ========== */
+.weather {
+    margin-bottom: var(--spacing-xl);
+}
+
+.weather h2 {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    padding: var(--spacing-md);
+    margin: 0 0 var(--spacing-lg) 0;
+    border-radius: 4px 4px 0 0;
+}
+
+.weather-current {
+    background-color: var(--color-light-gray);
+    padding: var(--spacing-md);
+    border-radius: 0 0 4px 4px;
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+.weather-icon {
+    font-size: 4rem;
+    min-width: 80px;
+    text-align: center;
+}
+
+.weather-details {
+    flex: 1;
+}
+
+.temperature {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+}
+
+.condition {
+    font-size: 1.1rem;
+    color: var(--color-forest);
+    margin-bottom: var(--spacing-sm);
+}
+
+.weather-info {
+    list-style: none;
+    font-size: 0.9rem;
+    color: var(--color-dark);
+}
+
+.weather-info li {
+    padding: 0.25rem 0;
+}
+
+/* ========== FORECAST SECTION ========== */
+.forecast {
+    margin-bottom: var(--spacing-xl);
+}
+
+.forecast h2 {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    padding: var(--spacing-md);
+    margin: 0 0 var(--spacing-lg) 0;
+    border-radius: 4px 4px 0 0;
+}
+
+.forecast-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.forecast-card {
+    background-color: var(--color-soft-beige);
+    padding: var(--spacing-md);
+    border-top: 3px solid var(--color-accent);
+    border-radius: 4px;
+    text-align: center;
+}
+
+.forecast-card h3 {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.forecast-icon {
+    font-size: 2.5rem;
+    margin: var(--spacing-sm) 0;
+}
+
+.forecast-temp {
+    font-weight: 600;
+    color: var(--color-forest);
+    margin-bottom: 0.25rem;
+}
+
+.forecast-condition {
+    color: var(--color-forest);
+}
+
 /* ========== DIRECTORY SECTION ========== */
 .directory-header {
     text-align: center;
