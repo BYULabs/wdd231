@@ -494,16 +494,16 @@ main {
 
 .membership-gold {
     background-color: #ffd700;
-    color: #8b6914;
+    color: #785b13;
 }
 
 .membership-silver {
     background-color: #c0c0c0;
-    color: #555;
+    color: #4f4f4f;
 }
 
 .membership-bronze {
-    background-color: #cd7f32;
+    background-color: #a6662a;
     color: #fff;
 }
 
@@ -536,7 +536,7 @@ main {
 }
 
 .spotlight-info strong {
-    color: var(--color-primary);
+    color: var(--color-dark);
     font-weight: 600;
 }
 
