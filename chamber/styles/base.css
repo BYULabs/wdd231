@@ -431,6 +431,139 @@ main {
     color: var(--color-forest);
 }
 
+/* ========== SPOTLIGHTS SECTION ========== */
+.spotlights {
+    margin-bottom: var(--spacing-xl);
+}
+
+.spotlights h2 {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    padding: var(--spacing-md);
+    margin: 0 0 var(--spacing-lg) 0;
+    border-radius: 4px 4px 0 0;
+}
+
+.spotlights-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    background-color: var(--color-soft-beige);
+    padding: var(--spacing-lg);
+    border-radius: 0 0 4px 4px;
+}
+
+.spotlight-card {
+    background-color: var(--color-light);
+    padding: var(--spacing-lg);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition);
+    border-left: 5px solid var(--color-accent);
+}
+
+.spotlight-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.spotlight-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-md);
+}
+
+.spotlight-image {
+    font-size: 3rem;
+    text-align: center;
+    flex: 0 0 auto;
+}
+
+.membership-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.membership-gold {
+    background-color: #ffd700;
+    color: #8b6914;
+}
+
+.membership-silver {
+    background-color: #c0c0c0;
+    color: #555;
+}
+
+.membership-bronze {
+    background-color: #cd7f32;
+    color: #fff;
+}
+
+.spotlight-card h3 {
+    color: var(--color-primary);
+    margin: 0 0 0.5rem 0;
+    font-size: 1.3rem;
+}
+
+.spotlight-category {
+    font-size: 0.9rem;
+    color: var(--color-forest);
+    font-weight: 600;
+    margin: 0 0 var(--spacing-md) 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.spotlight-info {
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-md);
+    background-color: var(--color-soft-beige);
+    border-radius: 4px;
+}
+
+.spotlight-info p {
+    margin-bottom: 0.5rem;
+    color: var(--color-dark);
+}
+
+.spotlight-info strong {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.spotlight-info a {
+    color: var(--color-forest);
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.spotlight-info a:hover {
+    color: var(--color-primary);
+}
+
+.spotlight-link {
+    display: inline-block;
+    color: var(--color-primary);
+    font-weight: 600;
+    transition: all var(--transition);
+    padding: 0.5rem 0;
+    border-bottom: 2px solid transparent;
+}
+
+.spotlight-link:hover {
+    color: var(--color-cta);
+    border-bottom-color: var(--color-cta);
+}
+
 /* ========== DIRECTORY SECTION ========== */
 .directory-header {
     text-align: center;
