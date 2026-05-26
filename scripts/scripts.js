@@ -9,6 +9,13 @@ allBtn.addEventListener('click', () => filterCourses('all'));
 cseBtn.addEventListener('click', () => filterCourses('cse'));
 wddBtn.addEventListener('click', () => filterCourses('wdd'));
 
+// Close button event listener
+const closeBtn = document.getElementById('modal-close-btn');
+closeBtn.addEventListener('click', () => {
+    const modal = document.getElementById('course-modal');
+    modal.close();
+});
+
 function filterCourses(filter) {
     currentFilter = filter;
     updateFilterButtons();
@@ -53,27 +60,28 @@ function displayCourses() {
         courseCard.textContent = `${course.subject} ${course.number}: ${course.title}`;
         courseCard.addEventListener('click', () => openCourseModal(course));
 
-
-        // courseCard.innerHTML = `
-        //     <a href="https://github.com/BYULabs/${course.subject.toLocaleLowerCase()}${course.number}" class="card-link" target="_blank">
-        //         <h3>${course.subject} ${course.number}: ${course.title}</h3>
-        //         <p class="credits">Credits: ${course.credits}</p>
-        //         <p>${course.description}</p>
-        //         <p class="tech">Technologies: ${course.technology.join(', ')}</p>
-        //         ${course.completed ? '<p class="completion-badge">✓ Completed</p>' : ''}
-        //     </a>
-        // `;
-
         container.appendChild(courseCard);
     });
 
     displayTotalCredits(filteredCourses);
-}
+};
 
-function showStuff(x) {
-    mytitle.innerHTML = x.name
-    myinfo.innerHTML = `Dedicated ${x.dedicated} by ${x.person} as temple number ${x.number}`
-    mydialog.showModal();
+
+function openCourseModal(course) {
+    const modal = document.getElementById('course-modal');
+    const modalContent = document.getElementById('modal-course-details');
+    
+    modalContent.innerHTML = `
+        <a href="https://github.com/BYULabs/${course.subject.toLocaleLowerCase()}${course.number}" class="card-link" target="_blank">
+            <h3>${course.subject} ${course.number}: ${course.title}</h3>
+            <p class="credits">Credits: ${course.credits}</p>
+            <p>${course.description}</p>
+            <p class="tech">Technologies: ${course.technology.join(', ')}</p>
+            ${course.completed ? '<p class="completion-badge">✓ Completed</p>' : ''}
+        </a>
+    `;
+
+    modal.showModal();
 }
 
 function displayTotalCredits(filteredCourses) {
