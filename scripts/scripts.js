@@ -9,13 +9,6 @@ allBtn.addEventListener('click', () => filterCourses('all'));
 cseBtn.addEventListener('click', () => filterCourses('cse'));
 wddBtn.addEventListener('click', () => filterCourses('wdd'));
 
-// Close button event listener
-const closeBtn = document.getElementById('modal-close-btn');
-closeBtn.addEventListener('click', () => {
-    const modal = document.getElementById('course-modal');
-    modal.close();
-});
-
 function filterCourses(filter) {
     currentFilter = filter;
     updateFilterButtons();
@@ -49,39 +42,48 @@ function displayCourses() {
     const container = document.getElementById('courses-container');
     container.innerHTML = '';
 
-    filteredCourses.forEach(course => {
-        const courseCard = document.createElement('div');
-        courseCard.classList.add('course-card');
+    filteredCourses.forEach((course, index) => {
+        const courseBtn = document.createElement('button');
+        courseBtn.classList.add('course-btn');
         
         if (course.completed) {
-            courseCard.classList.add('completed');
+            courseBtn.classList.add('completed');
         }
 
-        courseCard.textContent = `${course.subject} ${course.number}: ${course.title}`;
-        courseCard.addEventListener('click', () => openCourseModal(course));
+        courseBtn.textContent = `${course.subject} ${course.number}: ${course.title}`;
+        courseBtn.addEventListener('click', () => openCourseModal(course));
 
-        container.appendChild(courseCard);
+        container.appendChild(courseBtn);
     });
 
     displayTotalCredits(filteredCourses);
-};
-
+}
 
 function openCourseModal(course) {
     const modal = document.getElementById('course-modal');
     const modalContent = document.getElementById('modal-course-details');
     
     modalContent.innerHTML = `
-        <a href="https://github.com/BYULabs/${course.subject.toLocaleLowerCase()}${course.number}" class="card-link" target="_blank">
-            <h3>${course.subject} ${course.number}: ${course.title}</h3>
-            <p class="credits">Credits: ${course.credits}</p>
-            <p>${course.description}</p>
-            <p class="tech">Technologies: ${course.technology.join(', ')}</p>
+        <div class="modal-card-header">
+            <h2>${course.subject} ${course.number}</h2>
+        </div>
+        <div class="modal-card-body">
+            <h3>${course.title}</h3>
+            <p class="credits"><strong>Credits:</strong> ${course.credits}</p>
+            <p class="certificate"><strong>Certificate:</strong> ${course.certificate}</p>
+            <p class="description">${course.description}</p>
+            <p class="tech"><strong>Technologies:</strong> ${course.technology.join(', ')}</p>
             ${course.completed ? '<p class="completion-badge">✓ Completed</p>' : ''}
-        </a>
+            <a href="https://github.com/BYULabs/${course.subject.toLocaleLowerCase()}${course.number}" class="github-link" target="_blank" rel="noreferrer">View on GitHub →</a>
+        </div>
     `;
-
+    
     modal.showModal();
+}
+
+function closeModal() {
+    const modal = document.getElementById('course-modal');
+    modal.close();
 }
 
 function displayTotalCredits(filteredCourses) {
@@ -91,4 +93,16 @@ function displayTotalCredits(filteredCourses) {
 
 document.addEventListener('DOMContentLoaded', () => {
     displayCourses();
-})
+    
+    // Modal close button listener
+    const closeBtn = document.querySelector('.close-modal-btn');
+    closeBtn.addEventListener('click', closeModal);
+    
+    // Close modal when clicking outside the modal content
+    const modal = document.getElementById('course-modal');
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+});

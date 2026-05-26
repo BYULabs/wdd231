@@ -83,16 +83,14 @@
             <div class="courses-container" id="courses-container"></div>
             <p id="total-credits"></p>
         </section>
-
     </main>
-    
-    <!-- One single dialog for all courses -->
-    <dialog id="course-modal">
-        <div style="display: flex; justify-content: space-between; align-items: center;">
-            <h2>Course Details</h2>
-            <button id="modal-close-btn">X</button>
+
+    <!-- Course Details Modal -->
+    <dialog id="course-modal" class="course-modal">
+        <div class="modal-content">
+            <button class="close-modal-btn" aria-label="Close modal">&times;</button>
+            <div id="modal-course-details"></div>
         </div>
-        <div id="modal-course-details"></div>
     </dialog>
 
     <footer>
