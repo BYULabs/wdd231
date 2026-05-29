@@ -73,7 +73,7 @@
     }
 
     /* ========== JOIN CONTAINER - CENTERED FULL WIDTH ========== */
-    main.join {
+    main.main-block {
         display: block;
         margin: 0 230px;
     }
