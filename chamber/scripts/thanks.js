@@ -22,6 +22,6 @@ document.querySelector('#results').innerHTML = `
         
         ${submissionTime}
         
-        <p style="margin-top: 20px; font-style: italic;">Thank you for joining the Cumbayá Chamber of Commerce!</p>
+        <p>Thank you for joining the Cumbayá Chamber of Commerce!</p>
     </section>
 `
