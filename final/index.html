@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AniStream - Discover trending anime, search your favorites, and build your personal watchlist">
+    <meta name="author" content="Sebastián Iturralde">
+    <meta property="og:title" content="AniStream - Anime Discovery Platform">
+    <meta property="og:description" content="Search, discover, and track your favorite anime with AniStream">
+    <meta property="og:url" content="https://byulabs.github.io/wdd231/final">
+    <title>AniStream - Home</title>
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/larger.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <h1 class="logo">AniStream</h1>
+                <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="#">Explorer</a></li>
+                    <li><a href="#">Watchlist</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="current-year"></span> AniStream | Powered by <a href="https://jikan.moe" target="_blank" rel="noopener noreferrer">Jikan API</a></p>
+        <p>Last modified: <span id="last-modified"></span></p>
+    </footer>
+
+    <!-- Modal for anime details -->
+    <dialog id="anime-modal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal-btn" aria-label="Close modal">&times;</button>
+            <div id="modal-body"></div>
+        </div>
+    </dialog>
+</body>
+</html>
