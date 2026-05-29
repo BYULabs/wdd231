@@ -1,9 +1,30 @@
 /* ========================================
    CUMBAYA.CITY - DESKTOP STYLES
-   Larger screens: 1000px+
    ======================================== */
 
-@media (min-width: 1000px) {
+@media (min-width: 640px) {
+    .site-heading h1 {
+        font-size: 1.75rem;
+    }
+
+    .events-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+    }
+
+    .forecast-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-md);
+    }
+
+    .directory-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
     /* ========== HEADER & NAVIGATION ========== */
     .header-inner {
         gap: var(--spacing-lg);
@@ -49,6 +70,12 @@
         display: grid;
         grid-template-columns: 2fr 1fr;
         gap: var(--spacing-lg);
+    }
+
+    /* ========== JOIN CONTAINER - CENTERED FULL WIDTH ========== */
+    main.join {
+        display: block;
+        margin: 0 230px;
     }
 
     /* ========== HERO SECTION - FULL WIDTH ========== */
