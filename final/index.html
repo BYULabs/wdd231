@@ -8,44 +8,28 @@
     <meta property="og:title" content="AniStream - Anime Discovery Platform">
     <meta property="og:description" content="Search, discover, and track your favorite anime with AniStream">
     <meta property="og:url" content="https://byulabs.github.io/wdd231/final">
-    <title>AniStream - Home</title>
-    <link rel="stylesheet" href="styles/normalize.css">
-    <link rel="stylesheet" href="styles/base.css">
-    <link rel="stylesheet" href="styles/larger.css">
+    <title>AniStream — Discover Anime</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
     <header>
-        <nav class="navbar">
-            <div class="nav-container">
-                <h1 class="logo">AniStream</h1>
-                <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <ul class="nav-menu" id="nav-menu">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="#">Explorer</a></li>
-                    <li><a href="#">Watchlist</a></li>
-                </ul>
-            </div>
-        </nav>
+        <dic class="header-container">
+    
+            <a href="" class="logo">
+                <span class="logo-text">Ani<span class="logo-accent">Stream</span></span>
+            </a>
+        </dic>
     </header>
 
     <main>
     </main>
 
     <footer>
-        <p>&copy; <span id="current-year"></span> AniStream | Powered by <a href="https://jikan.moe" target="_blank" rel="noopener noreferrer">Jikan API</a></p>
-        <p>Last modified: <span id="last-modified"></span></p>
     </footer>
-
-    <!-- Modal for anime details -->
-    <dialog id="anime-modal" class="modal">
-        <div class="modal-content">
-            <button class="close-modal-btn" aria-label="Close modal">&times;</button>
-            <div id="modal-body"></div>
-        </div>
-    </dialog>
 </body>
 </html>
