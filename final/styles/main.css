@@ -136,3 +136,41 @@ nav.desktop-nav {
 .nav-link.active {
     color: white;
 }
+
+/* Search Button Container (Desktop) */
+.search-container {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .search-container {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.search-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgb(209, 213, 219);
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-btn:hover {
+    background: rgba(230, 57, 70, 0.15);
+    border-color: rgba(230, 57, 70, 0.4);
+    box-shadow: 0 0 20px rgba(230, 57, 70, 0.15);
+}
+
+.search-btn svg {
+    width: 16px;
+    height: 16px;
+}
