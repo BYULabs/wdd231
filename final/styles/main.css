@@ -307,6 +307,209 @@ nav.desktop-nav {
     color: white;
 }
 
+/* ===== HERO SECTION ===== */
+.hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 75vh;
+    overflow: hidden;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.hero-image-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.1s ease-out;
+    z-index: 1;
+}
+
+.hero-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: src 0.3s ease-in-out;
+}
+
+/* Layer Fades: Combined them to target z-index positioning correctly */
+.hero-fade-bottom,
+.hero-fade-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.hero-fade-bottom {
+    background: linear-gradient(
+        to top,
+        #08080c 0%,
+        rgba(8, 8, 12, 0.9) 20%,
+        rgba(8, 8, 12, 0.4) 50%,
+        transparent 100%
+    );
+}
+
+.hero-fade-left {
+    background: linear-gradient(
+        to right,
+        rgba(8, 8, 12, 0.95) 0%,
+        rgba(8, 8, 12, 0.7) 40%,
+        transparent 70%
+    );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    min-height: 75vh;
+    padding-top: 88px;
+}
+
+@media (min-width: 640px) {
+    .hero-content {
+        padding: 0 24px;
+        padding-top: 88px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero-content {
+        padding: 0 40px;
+        padding-top: 96px;
+    }
+}
+
+.hero-text {
+    max-width: 512px;
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+
+@media (min-width: 768px) {
+    .hero-text {
+        padding-top: 48px;
+        padding-bottom: 80px;
+    }
+}
+
+/* Season Tag */
+.season-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    padding: 6px 14px;
+    border-radius: 90px;
+    border: 1px solid rgba(230, 57, 70, 0.4);
+    background: rgba(230, 57, 70, 0.1);
+}
+
+.glow-dot {
+    color: #e63946;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    animation: pulseGlow 2s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+    0%,
+    100% {
+        opacity: 1;
+        text-shadow: 0 0 8px rgba(230, 57, 70, 0.8);
+    }
+    50% {
+        opacity: 0.85;
+        text-shadow: 0 0 16px rgba(230, 57, 70, 1);
+    }
+}
+
+/* Hero Title */
+.hero-title {
+    font-size: 36px;
+    font-weight: 900;
+    line-height: 1.05;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+}
+
+@media (min-width: 640px) {
+    .hero-title {
+        font-size: 48px;
+    }
+}
+
+@media (min-width: 768px) {
+    .hero-title {
+        font-size: 56px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero-title {
+        font-size: 68px;
+    }
+}
+
+/* Hero Description */
+.hero-description {
+    color: rgb(209, 213, 219);
+    font-size: 16px;
+    line-height: 1.625;
+    margin-bottom: 32px;
+    max-width: 512px;
+    font-weight: 300;
+}
+
+@media (min-width: 768px) {
+    .hero-description {
+        font-size: 18px;
+    }
+}
+
+/* CTA Button */
+.cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #e63946 0%, #c5303c 100%);
+    border: none;
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(230, 57, 70, 0.4);
+    transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+    box-shadow: 0 6px 30px rgba(230, 57, 70, 0.6);
+    transform: translateY(-2px);
+}
+
+.cta-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
 /* ===== FOOTER ===== */
 footer {
     border-top: 1px solid rgba(255, 255, 255, 0.05);
