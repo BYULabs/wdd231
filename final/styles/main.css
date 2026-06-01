@@ -314,6 +314,7 @@ nav.desktop-nav {
     min-height: 75vh;
     overflow: hidden;
     transition: opacity 0.4s ease-in-out;
+    background-color: #08080c;
 }
 
 .hero-image-wrapper {
@@ -332,6 +333,8 @@ nav.desktop-nav {
     height: 100%;
     object-fit: cover;
     object-position: center;
+    filter: blur(10px) brightness(0.55);
+    transform: scale(1.08);
     transition: src 0.3s ease-in-out;
 }
 
