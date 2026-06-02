@@ -11,6 +11,17 @@ export function getAnimeImageUrl(anime) {
     return anime?.images?.jpg?.image_url || '';
 }
 
+export function createGenreTagsHTML(genres = []) {
+    if (!genres.length) {
+        return '<span class="genre-tag">Anime</span>';
+    }
+
+    return genres
+        .slice(0, 2)
+        .map(genre => `<span class="genre-tag">${escapeHTML(genre.name)}</span>`)
+        .join('');
+}
+
 export function escapeHTML(value) {
     return String(value)
         .replace(/&/g, '&amp;')
@@ -19,7 +30,6 @@ export function escapeHTML(value) {
         .replace(/"/g, '&quot;')
         .replace(/'/g, '&#39;');
 }
-
 
 
 

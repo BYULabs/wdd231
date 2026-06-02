@@ -14,3 +14,7 @@ async function fetchJikanData(endpoint, errorMessage) {
 export function fetchUpcomingAnime() {
     return fetchJikanData('/seasons/upcoming?sfw=true', 'Failed to fetch upcoming slider data');
 }
+
+export function fetchCurrentAnime() {
+    return fetchJikanData('/seasons/now?sfw=true', 'Failed to fetch streaming grid elements');
+}

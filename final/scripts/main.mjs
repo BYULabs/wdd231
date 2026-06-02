@@ -1,5 +1,6 @@
 import { initMobileMenu } from './mobile-menu.mjs';
 import { initHeroSlider } from './hero-slider.mjs';
+import { initAnimeGrid } from './anime-grid.mjs';
 
 function initHeroParallax() {
     if (window.innerWidth < 768) {
@@ -21,4 +22,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     initHeroParallax();
     initHeroSlider();
+    initAnimeGrid();
 });
