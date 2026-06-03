@@ -969,6 +969,51 @@ nav.desktop-nav {
     justify-content: center;
 }
 
+/* Right Content Info Section Layout */
+.details.info.column {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+@media (min-width: 768px) {
+    .details-info-column {
+        gap: 28px;
+    }
+}
+
+/* Right Side Core Title Elements */
+#titleEn {
+    font-size: 30px;
+    font-weight: 900;
+    color: white;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+}
+@media (min-width: 640px) {
+    #titleEn {
+        font-size: 36px;
+    }
+}
+@media (min-width: 768px) {
+    #titleEn {
+        font-size: 48px;
+    }
+}
+
+#titleJp {
+    font-size: 16px;
+    color: #6b7280;
+    font-weight: 500;
+    font-style: italic;
+}
+@media (min-width: 768px) {
+    #titleJp {
+        font-size: 18px;
+    }
+}
+
 /* ===== FOOTER ===== */
 footer {
     border-top: 1px solid rgba(255, 255, 255, 0.05);
