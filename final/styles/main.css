@@ -808,6 +808,64 @@ nav.desktop-nav {
     color: #e63946;
 }
 
+/* ===== ANIME DETAILS MODULES ===== */
+/* Cinematic Backdrop Layout Modules */
+.cinematic-section {
+    position: relative;
+    min-height: 70vh;
+}
+
+.backdrop-banner-wrapper {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    height: 65vh;
+    min-height: 400px;
+    z-index: 1;
+}
+
+.banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: blur(10px) brightness(0.55);
+    transform: scale(1.08);
+}
+
+.backdrop-fade-bottom {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    height: 65vh;
+    min-height: 400px;
+    z-index: 2;
+    background: linear-gradient(
+        to top,
+        #08080c 0%,
+        rgba(8, 8, 12, 0.92) 25%,
+        rgba(8, 8, 12, 0.65) 50%,
+        rgba(8, 8, 12, 0.3) 75%,
+        transparent 100%
+    );
+}
+
+.backdrop-fade-left {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    height: 65vh;
+    min-height: 400px;
+    z-index: 2;
+    background: linear-gradient(
+        to right,
+        rgba(8, 8, 12, 0.98) 0%,
+        rgba(8, 8, 12, 0.75) 40%,
+        rgba(8, 8, 12, 0.3) 70%,
+        transparent 100%
+    );
+}
+
 /* ===== FOOTER ===== */
 footer {
     border-top: 1px solid rgba(255, 255, 255, 0.05);
