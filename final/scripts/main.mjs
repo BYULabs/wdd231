@@ -2,6 +2,7 @@
 import { initMobileMenu } from './mobile-menu.mjs';
 import { initHeroSlider } from './hero-slider.mjs';
 import { initAnimeGrid } from './anime-grid.mjs';
+import { initAnimeDetails } from './anime-details.mjs';
 
 /**
  * Drives subtle background parallax translation dynamics during user scroll operations.
@@ -32,4 +33,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initHeroParallax(); // Sets up parallax scroll physics
     initHeroSlider();   // Queries and triggers top hero slider rotation elements
     initAnimeGrid();    // Builds out secondary grid structures (managed via "anime-grid.mjs")
+    initAnimeDetails();   // Populates detail elements using dynamic live API feeds if route matches
 });

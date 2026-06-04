@@ -38,3 +38,11 @@ export function fetchUpcomingAnime() {
 export function fetchCurrentAnime() {
     return fetchJikanData('/seasons/now?sfw=true', 'Failed to fetch streaming grid elements');
 }
+
+/**
+ * Fetches comprehensive metadata for a specific anime by its ID.
+ * @param {number|string} id - The MyAnimeList ID of the anime.
+ */
+export function fetchAnimeById(id) {
+    return fetchJikanData(`/anime/${id}`, `Failed to fetch details for anime ID: ${id}`);
+}

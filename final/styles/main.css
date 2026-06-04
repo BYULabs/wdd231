@@ -970,12 +970,11 @@ nav.desktop-nav {
 }
 
 /* Right Content Info Section Layout */
-.details.info.column {
+.details-info-column {
     display: flex;
     flex-direction: column;
     gap: 24px;
 }
-
 @media (min-width: 768px) {
     .details-info-column {
         gap: 28px;
@@ -1012,6 +1011,96 @@ nav.desktop-nav {
     #titleJp {
         font-size: 18px;
     }
+}
+
+/* Badges Flex Layout Containers */
+.badges-flex-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+@media (min-width: 768px) {
+    .badges-flex-row {
+        gap: 12px;
+    }
+}
+
+.meta-badge-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #d1d5db;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.meta-badge-item svg {
+    color: #9ca3af;
+}
+.text-yellow-badge {
+    color: #fde047;
+}
+.text-yellow-badge svg {
+    color: #facc15;
+    fill: #facc15;
+}
+
+/* Status Item Framework Styles */
+.meta-badge-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid transparent;
+}
+.badge-status-airing {
+    background: rgba(34, 197, 94, 0.15);
+    border-color: rgba(34, 197, 94, 0.3);
+    color: #4ade80;
+}
+.badge-status-completed {
+    background: rgba(59, 130, 246, 0.15);
+    border-color: rgba(59, 130, 246, 0.3);
+    color: #60a5fa;
+}
+.status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+.status-dot-green {
+    background-color: #4ade80;
+}
+.status-dot-blue {
+    background-color: #60a5fa;
+}
+
+/* Genre Block Elements Row */
+.tags-flex-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.genre-tag-item {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 8px;
+    cursor: default;
+    background: rgba(230, 57, 70, 0.15);
+    border: 1px solid rgba(230, 57, 70, 0.3);
+    color: #ff4d5a;
+    transition: all 0.25s ease;
+}
+.genre-tag-item:hover {
+    background: rgba(230, 57, 70, 0.25);
+    border-color: rgba(230, 57, 70, 0.5);
 }
 
 /* Section Text Blocks Configurations (Synopsis) */
