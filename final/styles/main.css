@@ -1014,6 +1014,44 @@ nav.desktop-nav {
     }
 }
 
+/* Section Text Blocks Configurations (Synopsis) */
+.section-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+@media (min-width: 768px) {
+    .section-title {
+        font-size: 20px;
+    }
+}
+
+.accent-line-indicator {
+    display: inline-block;
+    width: 4px;
+    height: 20px;
+    background-color: #e63946;
+    border-radius: 90px;
+}
+
+#synopsis {
+    color: #d1d5db;
+    font-size: 16px;
+    line-height: 1.625;
+    font-weight: 300;
+}
+
+@media (min-width: 768px) {
+    #synopsis {
+        font-size: 17px;
+    }
+}
+
 /* ===== FOOTER ===== */
 footer {
     border-top: 1px solid rgba(255, 255, 255, 0.05);
