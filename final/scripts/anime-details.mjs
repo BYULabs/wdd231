@@ -97,6 +97,16 @@ function renderDetails(anime) {
         </div>
     `;
 
+    // Render category flags logic
+    const genreTags = document.getElementById('genreTags');
+    if (anime.genres && anime.genres.length > 0) {
+        genreTags.innerHTML = anime.genres.map(g => 
+            `<span class="genre-tag-item">${escapeHTML(g.name)}</span>`
+        ).join('');
+    } else {
+        genreTags.innerHTML = '<span class="genre-tag-item">Anime</span>';
+    }
+
     
 }
 
