@@ -1,42 +1,88 @@
 // Import the base URL configuration
 import { JIKAN_BASE_URL } from "./config.mjs";
 
+// Cache Duration configuration (in milliseconds)
+const CACHE_TIMES = {
+    LISTS: 2 * 60 * 60 * 1000,    // 2 Hours for home page lists (airing / upcoming)
+    DETAILS: 24 * 60 * 60 * 1000 // 24 Hours for individual anime metadata profile screens
+};
+
+/**
+ * Reads from localStorage and checks if the cached payload is still valid.
+ */
+function getCachedData(key) {
+    try {
+        const cached = localStorage.getItem(key);
+        if (!cached) return null;
+
+        const { data, timestamp } = JSON.parse(cached);
+        const age = Date.now() - timestamp;
+
+        // Determine expiration limits based on data type keys
+        const maxAge = key.startsWith('anime_detail_') ? CACHE_TIMES.DETAILS : CACHE_TIMES.LISTS;
+
+        if (age < maxAge) {
+            return data; // Cache hit and still fresh
+        }
+        
+        // Cache expired, wipe item cleanly from browser storage
+        localStorage.removeItem(key);
+        return null;
+    } catch (e) {
+        console.error("Error reading storage cache framework:", e);
+        return null;
+    }
+}
+
+/**
+ * Commits a fresh data payload wrapper to localStorage with a timestamp marker.
+ */
+function setCachedData(key, data) {
+    try {
+        const cachePayload = {
+            data: data,
+            timestamp: Date.now()
+        };
+        localStorage.setItem(key, JSON.stringify(cachePayload));
+    } catch (e) {
+        console.warn("Storage write limit threshold reached or disabled:", e);
+    }
+}
+
 /**
  * Helper function to handle boilerplate fetch operations and error responses.
- * @param {string} endpoint - The target API route (e.g., '/seasons/now').
- * @param {string} errorMessage - Custom message thrown if the network request fails.
- * @returns {Promise<Array>} Resolves to the 'data' array from Jikan API, or an empty fallback array.
  */
-async function fetchJikanData(endpoint, errorMessage) {
-    // Perform asynchronous HTTP fetch request
+async function fetchJikanData(endpoint, errorMessage, cacheKey) {
+    // 1. Check if valid cache data exists before firing a network operation
+    const localData = getCachedData(cacheKey);
+    if (localData) {
+        return localData;
+    }
+
+    // 2. Perform fallback asynchronous HTTP fetch request if cache misses
     const response = await fetch(`${JIKAN_BASE_URL}${endpoint}`);
     
-    // Check if HTTP status code is in the 200-299 range; if not, crash gracefully to the catch block
     if (!response.ok) {
         throw new Error(errorMessage);
     }
 
-    // Parse the JSON data stream
     const json = await response.json();
     
-    // Safely return the 'data' field payload or a fallback empty list
     return json.data || [];
 }
 
 /**
  * Fetches upcoming anime data for the home page hero carousel slider.
- * Filters safe-for-work (?sfw=true) content.
  */
 export function fetchUpcomingAnime() {
-    return fetchJikanData('/seasons/upcoming?sfw=true', 'Failed to fetch upcoming slider data');
+    return fetchJikanData('/seasons/upcoming?sfw=true', 'Failed to fetch upcoming slider data', 'anime_upcoming_list');
 }
 
 /**
  * Fetches currently airing/streaming anime data to populate the display grid.
- * Filters safe-for-work (?sfw=true) content.
  */
 export function fetchCurrentAnime() {
-    return fetchJikanData('/seasons/now?sfw=true', 'Failed to fetch streaming grid elements');
+    return fetchJikanData('/seasons/now?sfw=true', 'Failed to fetch streaming grid elements', 'anime_current_list');
 }
 
 /**
@@ -44,5 +90,5 @@ export function fetchCurrentAnime() {
  * @param {number|string} id - The MyAnimeList ID of the anime.
  */
 export function fetchAnimeById(id) {
-    return fetchJikanData(`/anime/${id}`, `Failed to fetch details for anime ID: ${id}`);
+    return fetchJikanData(`/anime/${id}`, `Failed to fetch details for anime ID: ${id}`, `anime_detail_${id}`);
 }
