@@ -67,8 +67,14 @@ async function fetchJikanData(endpoint, errorMessage, cacheKey) {
     }
 
     const json = await response.json();
+    const cleanPayload = json.data || [];
+
+    // 3. Update the localized storage track records with the fresh payload
+    if (cleanPayload && (!Array.isArray(cleanPayload) || cleanPayload.length > 0)) {
+        setCachedData(cacheKey, cleanPayload);
+    }
     
-    return json.data || [];
+    return cleanPayload;
 }
 
 /**
