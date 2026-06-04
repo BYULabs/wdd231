@@ -81,6 +81,9 @@ export async function initAnimeGrid() {
                 window.location.href = `anime-details.html?id=${anime.mal_id}`;
             })
 
+            // Pre-cache individual profile tokens to localStorage so the detailed layout works instantly
+            localStorage.setItem(`anime_detail_${anime.mal_id}`, JSON.stringify({ data: anime, timestamp: Date.now() }));
+
             // Append the fully constructed card to the grid container
             grid.appendChild(card);
         });
