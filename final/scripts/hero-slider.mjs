@@ -21,18 +21,25 @@ export function initHeroSlider() {
  */
 async function loadUpcomingSliderData() {
     try {
+        // This function call handles checking 'anime_upcoming_list' in localStorage automatically!
         const upcomingList = await fetchUpcomingAnime();
 
-        // Ensure we actually received data before attempting to kick off a loop
         if (upcomingList.length > 0) {
             // Restrict size to a clean, lightweight top-5 pool
             sliderAnimeData = upcomingList.slice(0, 5);
+
+            // Pre-cache these top 5 detailed entries so clicking the Hero button opens the detailed page instantly!
+            sliderAnimeData.forEach(anime => {
+                localStorage.setItem(`anime_detail_${anime.mal_id}`, JSON.stringify({
+                    data: anime,
+                    timestamp: Date.now()
+                }));
+            });
 
             // Initialize rotation loop
             startSliderCycle();
         }
     } catch (error) {
-        // Silently log retrieval errors without disrupting the visual thread layout
         console.error('Error fetching upcoming slider data:', error);
     }
 }
