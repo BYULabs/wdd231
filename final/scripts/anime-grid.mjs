@@ -76,6 +76,11 @@ export async function initAnimeGrid() {
             <h3 class="card-title">${escapeHTML(cleanDisplayTitle)}</h3>
             `;
 
+            // Redirect to detail template when the card is clicked
+            card.addEventListener('click', () => {
+                window.location.href = `anime-details.html?id=${anime.mal_id}`;
+            })
+
             // Append the fully constructed card to the grid container
             grid.appendChild(card);
         });

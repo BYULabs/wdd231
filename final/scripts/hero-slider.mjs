@@ -70,6 +70,7 @@ function renderSlideContent(anime) {
     const heroImage = document.querySelector('.hero-image-wrapper img');
     const heroTitle = document.querySelector('.hero-title');
     const heroDescription = document.querySelector('.hero-description');
+    const heroButton = document.querySelector('.hero-section .cta-btn');
 
     // Abort out of rendering actions if essential nodes are missing
     if (!heroSection || !anime) return;
@@ -96,6 +97,17 @@ function renderSlideContent(anime) {
             heroDescription.textContent = anime.synopsis
                 ? truncateString(anime.synopsis, 220)
                 : 'No preview summary description available for this upcoming release.';
+        }
+
+        // Clone and replace the button to strip any old event listeners from the previous slide, then attach the new redirect link for the current slide.
+        if (heroButton) {
+            const newButton = heroButton.cloneNode(true);
+            heroButton.parentNode.replaceChild(newButton, heroButton);
+            
+            newButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.location.href = `anime-details.html?id=${anime.mal_id}`;
+            });
         }
 
         // Step 3: Restore full opacity to complete the visual transition sequence
