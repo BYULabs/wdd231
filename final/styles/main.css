@@ -1141,6 +1141,41 @@ nav.desktop-nav {
     }
 }
 
+.production-table-card {
+    background: rgba(13, 13, 20, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.production-table-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.production-table-row:last-child {
+    border-bottom: none;
+}
+
+.production-label-col {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #9ca3af;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.production-value-col {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: right;
+}
+
 /* Animations Layout Core System Engine */
 @keyframes revealUp {
     from {

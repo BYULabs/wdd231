@@ -107,6 +107,25 @@ function renderDetails(anime) {
         genreTags.innerHTML = '<span class="genre-tag-item">Anime</span>';
     }
 
-    
+    // Production spreadsheet dataset structural mapping
+    const productionGrid = document.getElementById('productionGrid');
+    const productionData = [
+        { label: 'Source Material', value: anime.source || 'Unknown', icon: 'book-open' },
+        { label: 'Premiered', value: (anime.season && anime.year) ? `${anime.season} ${anime.year}` : 'Unknown', icon: 'calendar' },
+        { label: 'Broadcast', value: anime.broadcast?.string || 'Unknown', icon: 'clock' },
+        { label: 'Duration', value: anime.duration || 'Unknown', icon: 'timer' },
+        { label: 'Studio', value: studioName, icon: 'building' },
+        { label: 'Type', value: anime.type || 'Unknown', icon: 'film' },
+    ];
+
+    productionGrid.innerHTML = productionData.map(item => `
+        <div class="production-table-row">
+          <div class="production-label-col">
+            ${svgIcons[item.icon]}
+            <span>${escapeHTML(item.label)}</span>
+          </div>
+          <div class="production-value-col">${escapeHTML(item.value)}</div>
+        </div>
+    `).join('');
 }
 
