@@ -1,7 +1,7 @@
 import { initializeFooterDates } from './utils.mjs';
 import { initNavigation } from './navigation.mjs';
 import { initDirectory } from './directory.mjs';
-import { initDiscoverPage } from './discovery.mjs';
+import { initDiscoverPage, initVisitorMessage } from './discovery.mjs';
 import { initSpotlights } from './spotlights.mjs';
 import { initWeather } from './weather.mjs';
 import { initFormTimestamp, initThankYouResults } from './forms.mjs';
@@ -19,6 +19,7 @@ function initApp() {
     initFormTimestamp();
     initThankYouResults();
     initDiscoverPage();
+    initVisitorMessage();
 }
 
 // Kickstart execution
