@@ -338,7 +338,7 @@ nav.desktop-nav {
     transition: src 0.3s ease-in-out;
 }
 
-/* Layer Fades: Combined them to target z-index positioning correctly */
+/* Layer Fades */
 .hero-fade-bottom,
 .hero-fade-left {
     position: absolute;
@@ -375,8 +375,10 @@ nav.desktop-nav {
     max-width: 1440px;
     margin: 0 auto;
     padding: 0 16px;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr;
     align-items: center;
+    gap: 40px;
     min-height: 75vh;
     padding-top: 88px;
 }
@@ -388,6 +390,13 @@ nav.desktop-nav {
     }
 }
 
+@media (min-width: 768px) {
+    .hero-content {
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 60px;
+    }
+}
+
 @media (min-width: 1024px) {
     .hero-content {
         padding: 0 40px;
@@ -396,7 +405,7 @@ nav.desktop-nav {
 }
 
 .hero-text {
-    max-width: 512px;
+    max-width: 740px;
     padding-top: 40px;
     padding-bottom: 60px;
 }
@@ -418,6 +427,14 @@ nav.desktop-nav {
     border-radius: 90px;
     border: 1px solid rgba(230, 57, 70, 0.4);
     background: rgba(230, 57, 70, 0.1);
+}
+
+.season-tag-text {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #ffffff;
 }
 
 .glow-dot {
@@ -446,7 +463,7 @@ nav.desktop-nav {
     font-size: 36px;
     font-weight: 900;
     line-height: 1.05;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     letter-spacing: -0.02em;
 }
 
@@ -468,6 +485,24 @@ nav.desktop-nav {
     }
 }
 
+/* Metadata Info Badges Alignment */
+.hero-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.hero-meta-item {
+    font-size: 14px;
+    font-weight: 600;
+    color: #9ca3af;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
 /* Hero Description */
 .hero-description {
     color: rgb(209, 213, 219);
@@ -484,7 +519,14 @@ nav.desktop-nav {
     }
 }
 
-/* CTA Button */
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+}
+
+/* CTA Primary Button */
 .cta-btn {
     display: inline-flex;
     align-items: center;
@@ -511,6 +553,38 @@ nav.desktop-nav {
 .cta-btn svg {
     width: 20px;
     height: 20px;
+}
+
+.hero-poster-box {
+    display: none;
+    justify-self: center;
+    width: 260px;
+    aspect-ratio: 2 / 3;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow:
+        0 30px 60px rgba(0, 0, 0, 0.8),
+        0 0 40px rgba(230, 57, 70, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hero-poster-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+@media (min-width: 768px) {
+    .hero-poster-box {
+        display: block;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero-poster-box {
+        width: 300px;
+    }
 }
 
 /* ===== LATEST EPISODE DROPS SECTION ===== */

@@ -75,9 +75,11 @@ function renderSlideContent(anime) {
     // Fetch relevant UI handles
     const heroSection = document.querySelector('.hero-section');
     const heroImage = document.querySelector('.hero-image-wrapper img');
+    const heroPosterImage = document.querySelector('.hero-poster-box img');
     const heroTitle = document.querySelector('.hero-title');
+    const heroMetaRow = document.querySelector('.hero-meta-row');
     const heroDescription = document.querySelector('.hero-description');
-    const heroButton = document.querySelector('.hero-section .cta-btn');
+    const heroPrimaryBtn = document.querySelector('.hero-section .cta-btn');
 
     // Abort out of rendering actions if essential nodes are missing
     if (!heroSection || !anime) return;
@@ -89,9 +91,18 @@ function renderSlideContent(anime) {
 
     // Step 2: Swap the background details mid-fade using a brief timeout delay
     setTimeout(() => {
+        const imageUrl = getAnimeImageUrl(anime);
+
+        // Update blurred background
         if (heroImage) {
-            heroImage.src = getAnimeImageUrl(anime);
-            heroImage.alt = cleanHeroTitle;
+            heroImage.src = imageUrl;
+            heroImage.alt = `${cleanHeroTitle} Backdrop`;
+        }
+
+        // Update sharp un-blurred foreground poster display card
+        if (heroPosterImage) {
+            heroPosterImage.src = imageUrl;
+            heroPosterImage.alt = `${cleanHeroTitle} Poster`;
         }
 
         if (heroTitle) {
@@ -99,19 +110,33 @@ function renderSlideContent(anime) {
             heroTitle.innerHTML = escapeHTML(cleanHeroTitle);
         }
 
+        // Dynamically build out metadata items safely
+        if (heroMetaRow) {
+            const score = anime.score ? anime.score.toFixed(1) : 'N/A';
+            const type = anime.type ? anime.type : 'TV';
+            const genres = anime.genres && anime.genres.length > 0 
+                ? anime.genres.map(g => g.name).join(', ') 
+                : 'Unknown Genre';
+
+            heroMetaRow.innerHTML = `
+                <span class="hero-meta-item">${escapeHTML(type)}</span>
+                <span class="hero-meta-item">${escapeHTML(genres)}</span>
+            `;
+        }
+
         if (heroDescription) {
-            // Truncate summary lengths to protect text from breaking mobile layouts
+            // Truncate summary lengths to protect text from breaking layouts
             heroDescription.textContent = anime.synopsis
                 ? truncateString(anime.synopsis, 220)
                 : 'No preview summary description available for this upcoming release.';
         }
 
-        // Clone and replace the button to strip any old event listeners from the previous slide, then attach the new redirect link for the current slide.
-        if (heroButton) {
-            const newButton = heroButton.cloneNode(true);
-            heroButton.parentNode.replaceChild(newButton, heroButton);
+        // Clone and replace the primary button to strip any old event listeners
+        if (heroPrimaryBtn) {
+            const newPrimaryBtn = heroPrimaryBtn.cloneNode(true);
+            heroPrimaryBtn.parentNode.replaceChild(newPrimaryBtn, heroPrimaryBtn);
             
-            newButton.addEventListener('click', (e) => {
+            newPrimaryBtn.addEventListener('click', (e) => {
                 e.preventDefault();
                 window.location.href = `anime-details.html?id=${anime.mal_id}`;
             });
