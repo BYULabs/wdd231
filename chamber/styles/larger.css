@@ -2,29 +2,7 @@
    CUMBAYA.CITY - DESKTOP STYLES
    ======================================== */
 
-@media (min-width: 640px) {
-    .site-heading h1 {
-        font-size: 1.75rem;
-    }
-
-    .events-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--spacing-md);
-    }
-
-    .forecast-container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: var(--spacing-md);
-    }
-
-    .directory-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (min-width: 1024px) {
+@media (min-width: 64rem) {
     /* ========== HEADER & NAVIGATION ========== */
     .header-inner {
         gap: var(--spacing-lg);
@@ -75,7 +53,6 @@
     /* ========== JOIN CONTAINER - CENTERED FULL WIDTH ========== */
     main.main-block {
         display: block;
-        margin: 0 230px;
     }
 
     /* ========== HERO SECTION - FULL WIDTH ========== */
@@ -154,6 +131,28 @@
 
     .directory-grid.list-view .business-card {
         align-items: flex-start;
+    }
+
+    .places-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .places-grid div {
+        grid-template-areas:
+            "name"
+            "photograph"
+            "description"
+            "location";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: var(--spacing-sm);
+    }
+
+    .places-grid div img {
+        height: 220px;
+        max-height: none;
+        width: 100%;
     }
 
     /* ========== FOOTER ========== */
