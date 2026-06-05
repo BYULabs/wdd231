@@ -1,4 +1,4 @@
-{
+export const memberData = {
     "businesses": [
         {
             "name": "Café Cumbayá",
@@ -91,4 +91,4 @@
             "membership": "silver"
         }
     ]
-}
+};
