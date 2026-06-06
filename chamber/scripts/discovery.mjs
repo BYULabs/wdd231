@@ -13,7 +13,7 @@ function createPlaceCard(place) {
     card.innerHTML = `
         <div>
             <img src="images/${place.photo_url}" alt="${place.name}" loading="lazy">
-            <h3>${place.name}</h3>
+            <h2>${place.name}</h2>
             <address>📍 <em>${place.address}</em></address>
             <p>${place.description}</p>
         </div>
