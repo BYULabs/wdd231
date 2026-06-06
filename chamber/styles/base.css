@@ -1118,3 +1118,74 @@ footer {
 .footer-bottom p {
     margin-bottom: 0.25rem;
 }
+
+/* Visitor Floating Bubble Styles */
+.visitor-bubble {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    max-width: none;
+    background-color: #ffffff;
+    padding: 16px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border: 1px solid #e2e8f0;
+    animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+/* Hide utility class */
+.visitor-bubble.hidden {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    pointer-events: none;
+}
+
+.bubble-avatar {
+    font-size: 1.5rem;
+    background-color: #f0fdf4;
+    padding: 8px;
+    border-radius: 50%;
+}
+
+.bubble-content p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: #334155;
+    font-weight: 500;
+}
+
+.bubble-close-btn {
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    color: #94a3b8;
+    cursor: pointer;
+    padding: 4px;
+    align-self: flex-start;
+    margin-top: -4px;
+    line-index: 1;
+}
+
+.bubble-close-btn:hover {
+    color: #64748b;
+}
+
+/* Subtle entrance animation */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
