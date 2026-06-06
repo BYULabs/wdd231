@@ -226,10 +226,8 @@ main {
     text-align: center;
     min-height: 250px;
     display: flex;
-    /* flex-direction: columns; */
     justify-content: center;
     align-items: center;
-    /* position: relative; */
 }
 
 .hero-content {
