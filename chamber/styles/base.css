@@ -1160,7 +1160,7 @@ footer {
     margin: 0;
     font-size: 0.95rem;
     line-height: 1.4;
-    color: #334155;
+    color: var(--color-dark);
     font-weight: 500;
 }
 
@@ -1168,7 +1168,7 @@ footer {
     background: none;
     border: none;
     font-size: 1.3rem;
-    color: #94a3b8;
+    color: var(--color-forest);
     cursor: pointer;
     padding: 4px;
     align-self: flex-start;
@@ -1176,7 +1176,7 @@ footer {
 }
 
 .bubble-close-btn:hover {
-    color: #64748b;
+    color: var(--color-dark);
 }
 
 /* Subtle entrance animation */
