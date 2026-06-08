@@ -1285,6 +1285,70 @@ nav.desktop-nav {
     opacity: 0;
 }
 
+/* ===== BROWSE SYSTEM EXTENSIONS ===== */
+/* Browse Structural Framework Padding */
+.browse-page-main {
+    padding-top: 96px;
+    padding-bottom: 80px;
+    min-height: calc(100vh - 64px);
+}
+
+@media (min-width: 768px) {
+    .browse-page-main {
+        padding-top: 120px;
+        padding-bottom: 112px;
+    }
+}
+
+.browse-page-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+@media (min-width: 640px) {
+    .browse-page-container {
+        padding: 0 24px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .browse-page-container {
+        padding: 0 40px;
+    }
+}
+
+/* Page Header Typography Elements */
+.browse-header-wrapper {
+    margin-bottom: 32px;
+}
+
+.heading-title-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.browse-main-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: white;
+    letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+    .browse-main-title {
+        font-size: 38px;
+    }
+}
+
+.browse-subtitle {
+    color: #6b7280;
+    font-size: 14px;
+    font-weight: 500;
+}
+
 /* ===== FOOTER ===== */
 footer {
     border-top: 1px solid rgba(255, 255, 255, 0.05);
