@@ -8,12 +8,7 @@ import { initBrowseCatalog } from './browse-catalog.mjs';
 document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();   
     initHeroSlider();
+    initAnimeGrid();   
     initBrowseCatalog();
-
-    // Defer the grid slightly to prevent simultaneous API requests
-    setTimeout(() => {
-        initAnimeGrid();   
-    }, 200);
-
     initAnimeDetails();   
 });
