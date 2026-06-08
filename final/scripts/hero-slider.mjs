@@ -11,9 +11,40 @@ let sliderInterval = null;  // Reference pointer to the setInterval timer for cl
 
 /**
  * Component Entrypoint: Begins the asynchronous workflow to load the slider
+ * and initializes the parallax effect if the element exists on the current page.
  */
 export function initHeroSlider() {
+    initHeroParallax(); // Run the parallax setup cleanly inside its home component
     loadUpcomingSliderData();
+}
+
+/**
+ * Drives subtle background parallax translation dynamics during user scroll operations.
+ * Optimized to cleanly exit if elements don't exist or on low-spec mobile viewports.
+ */
+function initHeroParallax() {
+    const heroImg = document.querySelector('.hero-image-wrapper');
+
+    // If this element isn't found cleanly exit immediately and do not attach the global scroll event.
+    if (!heroImg) {
+        return;
+    }
+
+    // Exit tracking if execution occurs on mobile form factors under 768px wide
+    if (window.innerWidth < 768) {
+        return;
+    }
+
+    // Track frame adjustments on window scrolling
+    window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+
+        // Cap calculations to standard page ranges (0px to 900px vertical) to optimize computing performance
+        if (scrollY < 900) {
+            // Apply scale and minor translation shifts
+            heroImg.style.transform = `translateY(${scrollY * 0.3}px) scale(1.05)`;
+        }
+    }, { passive: true }); // '{ passive: true }' optimizes rendering thread performance
 }
 
 /**
