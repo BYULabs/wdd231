@@ -1,5 +1,3 @@
-// browse-catalog.mjs
-
 import { fetchCurrentAnime } from "./api.mjs";
 import { escapeHTML, getAnimeImageUrl, getAnimeTitle, createGenreTagsHTML } from "./utils.mjs";
 
@@ -40,7 +38,7 @@ export async function initBrowseCatalog() {
       const imageUrl = getAnimeImageUrl(anime);
       const rating = anime.score ? anime.score.toFixed(2) : "N/A";
       
-      // We will dynamically display the Source property on the badge instead of format!
+      // Dynamically display the Source property on the badge instead of format!
       const sourceMaterial = anime.source || "Original";
       const studio = anime.studios && anime.studios.length > 0 ? anime.studios[0].name : "Unknown Studio";
       const genreBadgesHTML = createGenreTagsHTML(anime.genres);
