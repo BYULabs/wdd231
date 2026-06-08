@@ -12,11 +12,20 @@ export async function initBrowseCatalog() {
   let liveAnimeData = [];
 
   try {
-    liveAnimeData = await fetchCurrentAnime();
+    const rawAnimeData = await fetchCurrentAnime();
 
-    if (!liveAnimeData || !liveAnimeData.length) {
-       throw new Error("No live seasonal catalog data was retrieved.");
+    if (!rawAnimeData || !rawAnimeData.length) {
+        throw new Error("No live seasonal catalog data was retrieved.");
     }
+
+    const seenIds = new Set();
+    liveAnimeData = rawAnimeData.filter(anime => {
+        if (seenIds.has(anime.mal_id)) {
+            return false;
+        }
+        seenIds.add(anime.mal_id);
+        return true;
+    });
 
     // Bind events to the updated source selector element
     filterSource.addEventListener('change', applyFilters);
