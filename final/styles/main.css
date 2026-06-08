@@ -1349,6 +1349,132 @@ nav.desktop-nav {
     font-weight: 500;
 }
 
+/* Filter Toolbar Control Panel Layout Grid */
+.filter-toolbar {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@media (min-width: 768px) {
+    .filter-toolbar {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 40px;
+    }
+}
+
+.filter-group-left {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .filter-group-left {
+        width: auto;
+    }
+}
+
+.filter-group-right {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .filter-group-right {
+        width: auto;
+        justify-content: flex-end;
+    }
+}
+
+/* Custom Select Dropdowns Framework Component */
+.custom-select-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+@media (min-width: 480px) {
+    .custom-select-wrapper {
+        width: auto;
+    }
+}
+
+.select-icon-left {
+    position: absolute;
+    left: 14px;
+    width: 16px;
+    height: 16px;
+    color: #6b7280;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.select-arrow-right {
+    position: absolute;
+    right: 14px;
+    width: 16px;
+    height: 16px;
+    color: #4b5563;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.custom-select-wrapper select {
+    width: 100%;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1.5px solid rgba(255, 255, 255, 0.07);
+    border-radius: 10px;
+    padding: 11px 40px 11px 42px;
+    color: #d1d5db;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.25s ease;
+}
+
+@media (min-width: 480px) {
+    .custom-select-wrapper select {
+        min-width: 160px;
+    }
+}
+
+.custom-select-wrapper select:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.12);
+    color: white;
+}
+
+.custom-select-wrapper select:focus {
+    border-color: rgba(230, 57, 70, 0.5);
+    box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.15);
+    background: #0d0d14;
+    color: white;
+}
+
+.custom-select-wrapper select option {
+    background-color: #0d0d14;
+    color: #d1d5db;
+}
+
+@media (min-width: 768px) {
+    .sort-dropdown select {
+        min-width: 190px;
+    }
+}
+
 /* ===== FOOTER ===== */
 footer {
     border-top: 1px solid rgba(255, 255, 255, 0.05);
