@@ -22,12 +22,13 @@ export async function initAnimeDetails() {
 
     // Parse URL parameter tracking token
     const params = new URLSearchParams(window.location.search);
-    const animeId = params.get('id');
+    let animeId = params.get('id');
 
-    // Fallback default: If no ID parameter is offered, fall back to an arbitrary valid item (e.g., ID 5114 = Fullmetal Alchemist)
+    // Fallback default without forcing a hard browser reload
     if (!animeId) {
-        window.location.search = '?id=5114';
-        return;
+        animeId = '5114';
+        // Silently updates the URL bar for the user
+        window.history.replaceState(null, '', '?id=5114'); 
     }
 
     try {
