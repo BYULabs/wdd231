@@ -27,11 +27,15 @@ function initHeroParallax() {
     }, { passive: true }); // '{ passive: true }' signals the browser that this listener won't cancel scroll actions, optimizing rendering thread performance
 }
 
-// Master trigger loop starting operations immediately when document tree parsing finishes
 document.addEventListener('DOMContentLoaded', () => {
-    initMobileMenu();   // Starts nav listeners
-    initHeroParallax(); // Sets up parallax scroll physics
-    initHeroSlider();   // Queries and triggers top hero slider rotation elements
-    initAnimeGrid();    // Builds out secondary grid structures (managed via "anime-grid.mjs")
-    initAnimeDetails();   // Populates detail elements using dynamic live API feeds if route matches
+    initMobileMenu();   
+    initHeroParallax(); 
+    initHeroSlider();   // Load this first (above the fold)
+
+    // Defer the grid slightly to prevent simultaneous API requests
+    setTimeout(() => {
+        initAnimeGrid();   
+    }, 200);
+
+    initAnimeDetails();   
 });
