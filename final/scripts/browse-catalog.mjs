@@ -1,13 +1,18 @@
 import { fetchCurrentAnime } from "./api.mjs";
-import { escapeHTML, getAnimeImageUrl, getAnimeTitle, createGenreTagsHTML } from "./utils.mjs";
+import { escapeHTML, getAnimeImageUrl, getAnimeTitle, createGenreTagsHTML, getCurrentSeasonTitle } from "./utils.mjs";
 
 export async function initBrowseCatalog() {
   const grid = document.getElementById('animeGrid');
   const filterSource = document.getElementById('filterSource'); // Track new DOM element
   const filterGenre = document.getElementById('filterGenre');
   const filterSort = document.getElementById('filterSort');
+  const mainTitle = document.querySelector('.browse-main-title');
 
   if (!grid || !filterSource || !filterGenre || !filterSort) return;
+
+  if (mainTitle) {
+    mainTitle.textContent = getCurrentSeasonTitle();
+  }
 
   let liveAnimeData = [];
 

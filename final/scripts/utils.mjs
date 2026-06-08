@@ -51,3 +51,27 @@ export function escapeHTML(value) {
         .replace(/"/g, '&quot;')
         .replace(/'/g, '&#39;');
 }
+
+/**
+ * Automatically calculates the current anime season and year based on the system date.
+ * @returns {string} E.g., "Summer 2026 Season"
+ */
+export function getCurrentSeasonTitle() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth(); // 0 = January, 11 = December
+
+    let season = '';
+    
+    if (month >= 0 && month <= 2) {
+        season = 'Winter';
+    } else if (month >= 3 && month <= 5) {
+        season = 'Spring';
+    } else if (month >= 6 && month <= 8) {
+        season = 'Summer';
+    } else {
+        season = 'Fall';
+    }
+
+    return `${season} ${year} Season`;
+}
