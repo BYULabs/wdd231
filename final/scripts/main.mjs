@@ -3,6 +3,7 @@ import { initMobileMenu } from './mobile-menu.mjs';
 import { initHeroSlider } from './hero-slider.mjs';
 import { initAnimeGrid } from './anime-grid.mjs';
 import { initAnimeDetails } from './anime-details.mjs';
+import { initBrowseCatalog } from './browse-catalog.mjs';
 
 /**
  * Drives subtle background parallax translation dynamics during user scroll operations.
@@ -30,7 +31,8 @@ function initHeroParallax() {
 document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();   
     initHeroParallax(); 
-    initHeroSlider();   // Load this first (above the fold)
+    initHeroSlider();
+    initBrowseCatalog();
 
     // Defer the grid slightly to prevent simultaneous API requests
     setTimeout(() => {
