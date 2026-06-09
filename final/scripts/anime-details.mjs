@@ -128,5 +128,67 @@ function renderDetails(anime) {
           <div class="production-value-col">${escapeHTML(item.value)}</div>
         </div>
     `).join('');
+
+    setupTrailerModal(anime);
+}
+
+/**
+ * Attaches events to handle displaying or restricting video overlay streams
+ */
+function setupTrailerModal(anime) {
+    // Select HTML DOM nodes targeting trailer actions
+    const trailerBtn = document.querySelector('.cta-btn');
+    const trailerModal = document.getElementById('trailerModal');
+    const modalClose = document.getElementById('modalClose');
+    const videoContainer = document.getElementById('trailerVideoContainer');
+
+    if (!trailerBtn || !trailerModal || !videoContainer) return;
+
+    // Check if Jikan payload contains a valid Youtube embed URL path
+    const embedUrl = anime.trailer?.embed_url;
+
+    if (!embedUrl) {
+        // Hide the button entirely if there is no trailer
+        trailerBtn.style.display = 'none';
+        return;
+    }
+
+    // Function to show modal and build embed iframe
+    const openModal = () => {
+        // Enforce secure rendering context configurations with autoplay enabled
+        videoContainer.innerHTML = `
+            <iframe 
+                src="${embedUrl}&autoplay=1" 
+                title="${escapeHTML(getAnimeTitle(anime))} Trailer"
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        `;
+        trailerModal.style.display = 'flex'; // Use flex to center the container grid alignment smoothly
+        document.body.style.overflow = 'hidden'; // Stop background window scrolling layout tracking
+    };
+
+    // Function to hide modal and cleanly clear out iframe DOM data stream
+    const closeModal = () => {
+        trailerModal.style.display = 'none';
+        videoContainer.innerHTML = ''; // Wipe out innerHTML container structure so audio stops playing
+        document.body.style.overflow = ''; // Re-enable window layout background controls
+    };
+
+    // Attach Event Listeners
+    trailerBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal();
+    });
+
+    modalClose.addEventListener('click', closeModal);
+
+    // Close the trailer modal automatically if clicking structural dark space overlay elements
+    trailerModal.addEventListener('click', (e) => {
+        if (e.target === trailerModal) {
+            closeModal();
+        }
+    });
 }
 

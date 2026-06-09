@@ -1264,25 +1264,88 @@ nav.desktop-nav {
 .reveal-up {
     animation: revealUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
+
 .reveal-delay-1 {
     animation-delay: 0.1s;
     opacity: 0;
 }
+
 .reveal-delay-2 {
     animation-delay: 0.2s;
     opacity: 0;
 }
+
 .reveal-delay-3 {
     animation-delay: 0.3s;
     opacity: 0;
 }
+
 .reveal-delay-4 {
     animation-delay: 0.4s;
     opacity: 0;
 }
+
 .reveal-delay-5 {
     animation-delay: 0.5s;
     opacity: 0;
+}
+
+/* Container backdrop rules aligning modal over standard document layers */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    background-color: #141414;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Widescreen 16:9 Fluid Aspect-Ratio Wrapper Hack */
+.modal-video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 ratio dynamic padding tracking */
+}
+
+.modal-video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 50%;
+    z-index: 1010;
+    transition: background 0.2s ease;
+}
+
+.modal-close-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
 }
 
 /* ===== BROWSE SYSTEM EXTENSIONS ===== */
