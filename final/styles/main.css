@@ -1688,6 +1688,130 @@ nav.desktop-nav {
     }
 }
 
+/* Page Headers Setup */
+.schedule-header-wrapper {
+    margin-bottom: 32px;
+}
+
+.heading-title-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.schedule-main-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: white;
+    letter-spacing: -0.02em;
+}
+@media (min-width: 768px) {
+    .schedule-main-title {
+        font-size: 38px;
+    }
+}
+
+.schedule-subtitle {
+    color: #6b7280;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Mobile Scrolling Container Framework for Tabs */
+.day-tabs-scroll-container {
+    width: 100%;
+    overflow-x: auto;
+    margin-bottom: 32px;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.day-tabs-scroll-container::-webkit-scrollbar {
+    height: 4px;
+}
+
+.day-tabs-scroll-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.day-tabs-scroll-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 2px;
+}
+
+@media (min-width: 1024px) {
+    .day-tabs-scroll-container {
+        overflow-x: visible;
+        margin-bottom: 40px;
+    }
+}
+
+/* Day Tabs Action Button Architecture */
+.day-tabs-wrapper {
+    display: flex;
+    gap: 8px;
+    min-width: max-content;
+    padding: 6px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 14px;
+}
+
+@media (min-width: 1024px) {
+    .day-tabs-wrapper {
+        min-width: 100%;
+        display: grid;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        gap: 8px;
+    }
+}
+
+.day-tab {
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    color: #9ca3af;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.day-tab:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.day-tab.active {
+    color: white;
+    background: #e63946;
+    box-shadow: 0 4px 20px rgba(230, 57, 70, 0.35);
+}
+
+/* Day Names Adaptive Visibility Controls */
+.day-name-full {
+    display: none;
+}
+
+.day-name-short {
+    display: inline;
+}
+
+@media (min-width: 786px) {
+    .day-name-full {
+        display: inline;
+    }
+    .day-name-short {
+        display: none;
+    }
+}
+
 /* ===== FOOTER ===== */
 footer {
     border-top: 1px solid rgba(255, 255, 255, 0.05);
