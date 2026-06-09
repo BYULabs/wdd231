@@ -822,6 +822,7 @@ nav.desktop-nav {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
+    margin-top: 20px;
     margin-bottom: 8px;
 }
 
@@ -1535,6 +1536,122 @@ nav.desktop-nav {
 @media (min-width: 768px) {
     .sort-dropdown select {
         min-width: 190px;
+    }
+}
+
+/* Browse Format Badge Overlays */
+.browse-format-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 5;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 0.03em;
+    background: rgba(230, 57, 70, 0.9);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 4px 12px rgba(230, 57, 70, 0.25);
+}
+
+/* Browse Dynamic Custom Overlays Alignment */
+.browse-overlay-meta {
+    margin-top: auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.browse-studio-text {
+    font-size: 11px;
+    font-weight: 600;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.browse-rating-row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fde047;
+}
+
+.browse-rating-row .star-icon {
+    width: 12px;
+    height: 12px;
+    fill: #facc15;
+    color: #facc15;
+}
+
+/* Card Outer Text Formatting Link Block */
+.anime-card-link-wrapper {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.browse-card-title {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.4;
+    transition: color 0.25s ease;
+}
+
+@media (min-width: 768px) {
+    .browse-card-title {
+        margin-top: 12px;
+        font-size: 16px;
+    }
+}
+
+.anime-card:hover .browse-card-title {
+    color: #e63946;
+}
+
+/* Catalog 6-Column CSS Grid Configuration */
+.browse-grid-layout {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+@media (min-width: 480px) {
+    .browse-grid-layout {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+    }
+}
+
+@media (min-width: 768px) {
+    .browse-grid-layout {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1024px) {
+    .browse-grid-layout {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 24px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .browse-grid-layout {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
     }
 }
 
