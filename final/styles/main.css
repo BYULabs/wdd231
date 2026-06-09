@@ -1706,3 +1706,20 @@ footer {
     color: rgb(107, 114, 128);
     font-size: 14px;
 }
+
+/* Base structural icons helpers */
+.icon-sm {
+    width: 14px;
+    height: 14px;
+    display: block;
+}
+.icon-md {
+    width: 18px;
+    height: 18px;
+    display: block;
+}
+.icon-lg {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
