@@ -1655,6 +1655,39 @@ nav.desktop-nav {
     }
 }
 
+/* ===== SCHEDULE MODULES & UTILITIES ===== */
+/* Main Schedule Layout Padding Frames */
+.schedule-page-main {
+    padding-top: 96px;
+    padding-bottom: 80px;
+    min-height: calc(100vh - 64px);
+}
+
+@media (min-width: 768px) {
+    .schedule-page-main {
+        padding-top: 120px;
+        padding-bottom: 112px;
+    }
+}
+
+.schedule-page-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+@media (min-width: 768px) {
+    .schedule-page-container {
+        padding: 0 24px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .schedule-page-container {
+        padding: 0 40px;
+    }
+}
+
 /* ===== FOOTER ===== */
 footer {
     border-top: 1px solid rgba(255, 255, 255, 0.05);
