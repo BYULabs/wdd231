@@ -48,6 +48,26 @@ export function initHeaderSearch() {
             });
         }
 
+        function navigate() {
+            const q = input ? input.value.trim() : '';
+            if (q.length > 0) {
+                window.location.href = `search.html?q=${encodeURIComponent(q)}`;
+            } else {
+                closeSearch();
+            }
+        }
+
+        function closeSearch() {
+            if (!active) return;
+            active = false;
+            if (label && input) {
+                input.replaceWith(label);
+            } else if (input) {
+                input.remove();
+            }
+            input = null;
+        }
+
         btn.addEventListener('click', openSearch);
 
     }
