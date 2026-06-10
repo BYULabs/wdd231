@@ -1812,6 +1812,107 @@ nav.desktop-nav {
     }
 }
 
+/* Fixed Clock Broadcast Badge Overlay Styles */
+.schedule-time-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 10;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 0.05em;
+    background: rgba(13, 13, 20, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Card External Text Mapping Styles */
+.schedule-card-title {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.4;
+    transition: color 0.25s ease;
+}
+
+@media (min-width: 768px) {
+    .schedule-card-title {
+        margin-top: 12px;
+        font-size: 16px;
+    }
+}
+
+.anime-card:hover .schedule-card-title {
+    color: #e63946;
+}
+
+/* 6-Column Responsive Grid Layout Framework */
+.schedule-grid-layout {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+@media (min-width: 480px) {
+    .schedule-grid-layout {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+    }
+}
+
+@media (min-width: 768px) {
+    .schedule-grid-layout {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1024px) {
+    .schedule-grid-layout {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 24px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .schedule-grid-layout {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+}
+
+/* Empty Schedule State Interfacing */
+.schedule-empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 64px 0;
+    color: #4b5563;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* Core Dynamic Script Utility Rules */
+.results-grid-animation {
+    animation: scheduleFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes scheduleFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* ===== FOOTER ===== */
 footer {
     border-top: 1px solid rgba(255, 255, 255, 0.05);
