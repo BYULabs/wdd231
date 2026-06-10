@@ -177,6 +177,10 @@ nav.desktop-nav {
     height: 16px;
 }
 
+.search-btn span {
+    pointer-events: none;
+}
+
 /* Mobile Controls */
 .mobile-controls {
     display: flex;
