@@ -1,16 +1,30 @@
+/**
+ * Initializes the header search functionality for both desktop and mobile buttons.
+ * It dynamically turns a static button/label into an active input field.
+ */
 export function initHeaderSearch() {
+    // Prevent duplicate initialization if the search input already exists on the page
     if (document.getElementById('searchInput')) return;
 
+    /**
+     * Attaches dynamic search behavior to a given button element.
+     * * @param {HTMLElement} btn - The button element to attach the click listener to.
+     * @param {string|null} labelSelector - CSS selector for the text label inside the button (if applicable).
+     */
     function attachSearchBehavior(btn, labelSelector) {
-        if (!btn) return;
+        if (!btn) return; // Guard clause if the button doesn't exist on the current page
 
         const label = labelSelector ? btn.querySelector(labelSelector) : null;
         let input = null;
-        let active = false;
+        let active = false; // Tracks whether the input field is currently open
 
+        /**
+         * Handles opening the search input or triggering a search if already open.
+         */
         function openSearch(e) {
             e.preventDefault();
 
+            // If the user clicks the button while the input is already open, treat it as a submit
             if (active) {
                 navigate();
                 return;
@@ -18,11 +32,13 @@ export function initHeaderSearch() {
 
             active = true;
 
+            // Dynamically create the search input element
             input = document.createElement('input');
             input.type = 'text';
             input.placeholder = 'Search anime…';
             input.setAttribute('aria-label', 'Search anime');
 
+            // Apply inline styles to seamlessly blend the input into the button's design
             Object.assign(input.style, {
                 background: 'transparent',
                 border: 'none',
@@ -30,26 +46,34 @@ export function initHeaderSearch() {
                 color: 'inherit',
                 font: 'inherit',
                 fontSize: '14px',
+                // Match the width of the text label it's replacing, or fallback to 120px
                 width: label ? `${label.offsetWidth}px` : '120px',
                 minWidth: '80px',
             });
 
+            // Swap out the text label for the input field, or append it to the button
             if (label) {
                 label.replaceWith(input);
             } else {
                 btn.appendChild(input);
             }
 
-            input.focus();
+            input.focus(); // Auto-focus the input for immediate typing
 
+            // Handle keyboard shortcuts while typing
             input.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter') navigate();
                 if (e.key === 'Escape') closeSearch();
             });
         }
 
+        /**
+         * Redirects the user to the search results page.
+         */
         function navigate() {
             const q = input ? input.value.trim() : '';
+            
+            // Redirect if the user typed something; otherwise, just close the input
             if (q.length > 0) {
                 window.location.href = `search.html?q=${encodeURIComponent(q)}`;
             } else {
@@ -57,21 +81,29 @@ export function initHeaderSearch() {
             }
         }
 
+        /**
+         * Closes the search input and restores the original button/label state.
+         */
         function closeSearch() {
             if (!active) return;
             active = false;
+            
+            // Revert the DOM back to its original layout
             if (label && input) {
-                input.replaceWith(label);
+                input.replaceWith(label); // Put the text label back
             } else if (input) {
-                input.remove();
+                input.remove(); // Just remove the input if there was no label
             }
-            input = null;
+            input = null; // Clean up reference
         }
 
+        // Trigger the search initialization on button click
         btn.addEventListener('click', openSearch);
-
     }
 
+    // Initialize the behavior for the desktop search button (replaces a <span> label)
     attachSearchBehavior(document.querySelector('.search-btn'), 'span');
+    
+    // Initialize the behavior for the mobile search button (appends directly, no label)
     attachSearchBehavior(document.querySelector('.mobile-search-btn'), null);
 }

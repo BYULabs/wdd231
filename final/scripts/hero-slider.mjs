@@ -1,7 +1,4 @@
-// Import API helper function to query upcoming anime data
 import { fetchUpcomingAnime } from './api.mjs';
-
-// Import text, security, and imagery parsing helper functions
 import { escapeHTML, getAnimeImageUrl, getAnimeTitle, truncateString } from './utils.mjs';
 
 // Module state management variables

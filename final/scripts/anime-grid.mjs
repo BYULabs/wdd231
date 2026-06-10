@@ -1,14 +1,5 @@
-// Import the API fetching function to get live anime data
 import { fetchCurrentAnime } from "./api.mjs";
-
-// Import UI utility functions for formatting, security, and rendering
-import { 
-    createGenreTagsHTML, 
-    escapeHTML, 
-    getAnimeImageUrl, 
-    getAnimeTitle, 
-    truncateString 
-} from "./utils.mjs";
+import { createGenreTagsHTML, escapeHTML, getAnimeImageUrl, getAnimeTitle, truncateString } from "./utils.mjs";
 
 /**
  * Initializes the anime grid UI component by fetching current anime data

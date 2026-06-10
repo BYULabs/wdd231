@@ -1,65 +1,86 @@
 import { fetchCurrentAnime } from "./api.mjs";
 import { escapeHTML, getAnimeImageUrl, getAnimeTitle, createGenreTagsHTML, getCurrentSeasonTitle } from "./utils.mjs";
 
+/**
+ * Initializes the browse catalog page.
+ * Fetches seasonal anime data, sets up filter and sort listeners, 
+ * handles data deduplication, caching, and dynamically renders results.
+ */
 export async function initBrowseCatalog() {
+  // --- DOM Element Selection ---
   const grid = document.getElementById('animeGrid');
-  const filterSource = document.getElementById('filterSource'); // Track new DOM element
-  const filterGenre = document.getElementById('filterGenre');
-  const filterSort = document.getElementById('filterSort');
+  const filterSource = document.getElementById('filterSource'); // Dropdown for source material (Manga, Original, etc.)
+  const filterGenre = document.getElementById('filterGenre');   // Dropdown for genres (Action, Romance, etc.)
+  const filterSort = document.getElementById('filterSort');     // Dropdown for sorting order
   const mainTitle = document.querySelector('.browse-main-title');
 
+  // Guard clause: Exit if the required layout elements are missing on the current page
   if (!grid || !filterSource || !filterGenre || !filterSort) return;
 
+  // Dynamically update the page heading to the current season (e.g., "Spring 2026")
   if (mainTitle) {
     mainTitle.textContent = getCurrentSeasonTitle();
   }
 
+  // Holds the master list of clean, unique anime data returned from the API
   let liveAnimeData = [];
 
   try {
+    // 1. Fetch data from the Jikan/MAL API wrapper
     const rawAnimeData = await fetchCurrentAnime();
 
     if (!rawAnimeData || !rawAnimeData.length) {
         throw new Error("No live seasonal catalog data was retrieved.");
     }
 
+    // 2. Data Cleansing: Remove duplicate entries by tracking unique MyAnimeList IDs (mal_id)
     const seenIds = new Set();
     liveAnimeData = rawAnimeData.filter(anime => {
         if (seenIds.has(anime.mal_id)) {
-            return false;
+            return false; // Skip duplicate
         }
         seenIds.add(anime.mal_id);
-        return true;
+        return true;    // Keep unique entry
     });
 
-    // Bind events to the updated source selector element
+    // 3. Event Binding: Trigger the filtering pipeline whenever a dropdown changes
     filterSource.addEventListener('change', applyFilters);
     filterGenre.addEventListener('change', applyFilters);
     filterSort.addEventListener('change', applyFilters);
 
+    // 4. Initial Render: Display all unique cards on page load
     renderCards(liveAnimeData);
 
   } catch (error) {
+     // Error handling: Log error and show a user-friendly error state in the UI grid
      console.error("Failed to load browse catalog components from API:", error);
      grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: rgba(255,255,255,0.4); padding: 40px 0;">Unable to render current season. Please reload the page.</p>';
   }
 
+  /**
+   * Generates HTML cards for a given array of anime objects and appends them to the grid.
+   * @param {Array} data - The array of filtered/sorted anime items to render.
+   */
   function renderCards(data) {
+    // Clear out any existing HTML content in the grid
     grid.innerHTML = '';
     
     data.forEach((anime) => {
+      // Extract properties safely using utility helper functions
       const title = getAnimeTitle(anime);
       const imageUrl = getAnimeImageUrl(anime);
       const rating = anime.score ? anime.score.toFixed(2) : "N/A";
       
-      // Dynamically display the Source property on the badge instead of format!
+      // Extract and fallback values for UI badges
       const sourceMaterial = anime.source || "Original";
       const studio = anime.studios && anime.studios.length > 0 ? anime.studios[0].name : "Unknown Studio";
       const genreBadgesHTML = createGenreTagsHTML(anime.genres);
 
+      // Create a container wrapper for the individual card
       const card = document.createElement('div');
       card.className = 'anime-card';
       
+      // Construct the internal card layout
       card.innerHTML = `
         <a href="anime-details.html?id=${anime.mal_id}" class="anime-card-link-wrapper">
           <div class="anime-card-image-wrapper">
@@ -87,44 +108,59 @@ export async function initBrowseCatalog() {
         <h3 class="browse-card-title">${escapeHTML(title)}</h3>
       `;
 
+      // Optimization: Cache full data payloads to LocalStorage.
+      // This prevents needing another network request when navigating to the details page.
       localStorage.setItem(`anime_detail_${anime.mal_id}`, JSON.stringify({ data: anime, timestamp: Date.now() }));
+      
       grid.appendChild(card);
     });
   }
 
+  /**
+   * Processes the master `liveAnimeData` array through source filtering, 
+   * genre filtering, and sorting rules, then triggers a re-render.
+   */
   function applyFilters() {
+    // Create a shallow copy of the master array to preserve original API data
     let filtered = [...liveAnimeData];
 
-    // Source Material filtering logic
+    // --- 1. Source Material Filter Logic ---
     const sourceValue = filterSource.value;
     if (sourceValue !== 'all') {
       if (sourceValue === 'other') {
-        // Group niche properties like Web Manga, Card Games, Visual Novels together
+        // Group niche properties (Web Manga, Card Games, Visual Novels, etc.) into one umbrella filter
         const standardSources = ['manga', 'light novel', 'original'];
         filtered = filtered.filter(a => !standardSources.includes((a.source || '').toLowerCase()));
       } else {
-        // Match standard choices directly (manga, light novel, original)
+        // Match explicit choices directly (e.g., 'manga', 'original')
         filtered = filtered.filter(a => (a.source || '').toLowerCase() === sourceValue);
       }
     }
 
+    // --- 2. Genre Filter Logic ---
     const genre = filterGenre.value;
     if (genre !== 'all') {
       filtered = filtered.filter(a => {
         if (!a.genres) return false;
+        // Verify if at least one genre name in the anime matches the selected dropdown string
         return a.genres.some(g => g.name.toLowerCase() === genre.toLowerCase());
       });
     }
 
+    // --- 3. Sort Order Logic ---
     const sort = filterSort.value;
     if (sort === 'az') {
+      // Alphabetical sort utilizing locale-aware string comparison
       filtered.sort((a, b) => getAnimeTitle(a).localeCompare(getAnimeTitle(b)));
     } else if (sort === 'rated') {
+      // Numerical sort: highest rating/score first
       filtered.sort((a, b) => (b.score || 0) - (a.score || 0));
     } else if (sort === 'popular') {
+      // Numerical sort: lowest popularity ranking number first (Rank #1 is most popular)
       filtered.sort((a, b) => (a.popularity || 9999) - (b.popularity || 9999));
     }
 
+    // Pass the fully manipulated dataset over to be rendered visually
     renderCards(filtered);
   }
 }

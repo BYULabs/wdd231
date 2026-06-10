@@ -1,4 +1,3 @@
-// Import the base URL configuration
 import { JIKAN_BASE_URL } from "./config.mjs";
 
 // Cache Duration configuration (in milliseconds)
