@@ -5,9 +5,11 @@ import { initAnimeGrid } from './anime-grid.mjs';
 import { initAnimeDetails } from './anime-details.mjs';
 import { initBrowseCatalog } from './browse-catalog.mjs';
 import { initAnimeSchedule } from './schedule.mjs';
+import { initHeaderSearch } from './header-search.mjs';
 
 document.addEventListener('DOMContentLoaded', () => {
-    initMobileMenu();   
+    initMobileMenu();
+    initHeaderSearch();  
     initHeroSlider();
     initAnimeGrid();   
     initBrowseCatalog();
