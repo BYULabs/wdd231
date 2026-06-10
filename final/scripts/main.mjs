@@ -4,6 +4,7 @@ import { initHeroSlider } from './hero-slider.mjs';
 import { initAnimeGrid } from './anime-grid.mjs';
 import { initAnimeDetails } from './anime-details.mjs';
 import { initBrowseCatalog } from './browse-catalog.mjs';
+import { initAnimeSchedule } from './schedule.mjs';
 
 document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();   
@@ -11,4 +12,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initAnimeGrid();   
     initBrowseCatalog();
     initAnimeDetails();   
+    initAnimeSchedule();
 });
