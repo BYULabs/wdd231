@@ -75,3 +75,26 @@ export function getCurrentSeasonTitle() {
 
     return `${season} ${year} Season`;
 }
+
+/**
+ * Filters an array to return only unique elements based on a selector function.
+ * @param {Array} array - The source array.
+ * @param {Function} keySelector - A function that returns the unique identifier for an item.
+ * @returns {Array} A new array containing only unique elements.
+ */
+export function removeDuplicates(array, keySelector) {
+    if (!Array.isArray(array)) return [];
+    
+    const seen = new Set();
+    return array.filter(item => {
+        const key = keySelector(item);
+        if (seen.has(key)) {
+            return false;
+        }
+        seen.add(key);
+        return true;
+    });
+}
+// Shorthand version:
+// export const removeDuplicates = (arr, keySelector) => 
+//     [...new Map(arr.map(item => [keySelector(item), item])).values()];

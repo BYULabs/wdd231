@@ -1,5 +1,5 @@
 import { fetchCurrentAnime } from "./api.mjs";
-import { escapeHTML, getAnimeImageUrl, getAnimeTitle, createGenreTagsHTML, getCurrentSeasonTitle } from "./utils.mjs";
+import { escapeHTML, getAnimeImageUrl, getAnimeTitle, createGenreTagsHTML, getCurrentSeasonTitle, removeDuplicates } from "./utils.mjs";
 
 /**
  * Initializes the browse catalog page.
@@ -33,15 +33,8 @@ export async function initBrowseCatalog() {
         throw new Error("No live seasonal catalog data was retrieved.");
     }
 
-    // 2. Data Cleansing: Remove duplicate entries by tracking unique MyAnimeList IDs (mal_id)
-    const seenIds = new Set();
-    liveAnimeData = rawAnimeData.filter(anime => {
-        if (seenIds.has(anime.mal_id)) {
-            return false; // Skip duplicate
-        }
-        seenIds.add(anime.mal_id);
-        return true;    // Keep unique entry
-    });
+    // 2. Remove duplicate anime items from the API response before rendering
+    liveAnimeData = removeDuplicates(rawAnimeData, anime => anime.mal_id);
 
     // 3. Event Binding: Trigger the filtering pipeline whenever a dropdown changes
     filterSource.addEventListener('change', applyFilters);

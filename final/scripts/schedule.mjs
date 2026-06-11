@@ -1,5 +1,5 @@
 import { fetchCurrentAnime } from "./api.mjs";
-import { createGenreTagsHTML, escapeHTML, getAnimeImageUrl, getAnimeTitle, truncateString } from "./utils.mjs";
+import { createGenreTagsHTML, escapeHTML, getAnimeImageUrl, getAnimeTitle, removeDuplicates, truncateString } from "./utils.mjs";
 
 let weeklyCachedData = null;
 let currentActiveDay = 'monday'; // Jikan uses full lowercase strings ('monday', 'tuesday', etc.)
@@ -42,7 +42,10 @@ function groupScheduleByDay(dataArray) {
         friday: [], saturday: [], sunday: []
     };
 
-    dataArray.forEach(anime => {
+    // Remove duplicate anime items from the API response before bucket processing
+    const uniqueAnimeList = removeDuplicates(dataArray, anime => anime.mal_id);
+
+    uniqueAnimeList.forEach(anime => {
         // Extract the day identifier provided by the API (e.g., "Mondays")
         const broadcastDay = anime.broadcast?.day?.toLowerCase();
         

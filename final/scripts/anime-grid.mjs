@@ -1,5 +1,5 @@
 import { fetchCurrentAnime } from "./api.mjs";
-import { createGenreTagsHTML, escapeHTML, getAnimeImageUrl, getAnimeTitle, truncateString } from "./utils.mjs";
+import { createGenreTagsHTML, escapeHTML, getAnimeImageUrl, getAnimeTitle, removeDuplicates, truncateString } from "./utils.mjs";
 
 /**
  * Initializes the anime grid UI component by fetching current anime data
@@ -21,15 +21,8 @@ export async function initAnimeGrid() {
             throw new Error('No streaming data found');
         }
 
-        // Track seen IDs in a Set, filtering out any anime whose ID we've already met
-        const seenIds = new Set();
-        const uniqueAnimeList = animeList.filter(anime => {
-            if (seenIds.has(anime.mal_id)) {
-                return false; // Skip this duplicate element
-            }
-            seenIds.add(anime.mal_id);
-            return true; // Keep this unique element
-        });
+        // Remove duplicate anime items from the API response before rendering
+        const uniqueAnimeList = removeDuplicates(animeList, anime => anime.mal_id);
 
         // Limit the display to just the top 12 UNIQUE anime items for the grid
         const topStreamingAnime = uniqueAnimeList.slice(0, 12);
