@@ -2000,6 +2000,91 @@ nav.desktop-nav {
     }
 }
 
+/* Main Input Bar Module */
+.search-bar-wrapper {
+    max-width: 672px;
+    margin: 0 auto 40px auto;
+}
+
+@media (min-width: 768px) {
+    .search-bar-wrapper {
+        margin-bottom: 48px;
+    }
+}
+
+.search-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1.5px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.search-input-wrapper:focus-within {
+    border-color: rgba(230, 57, 70, 0.5);
+    box-shadow:
+        0 0 0 4px rgba(230, 57, 70, 0.1),
+        0 0 40px rgba(230, 57, 70, 0.08);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.search-icon-left {
+    width: 20px;
+    height: 20px;
+    color: rgb(107, 114, 128);
+    flex-shrink: 0;
+}
+
+.search-input-wrapper input {
+    flex: 1 1 0%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    caret-color: #e63946;
+    min-width: 0;
+}
+@media (min-width: 768px) {
+    .search-input-wrapper input {
+        font-size: 18px;
+    }
+}
+
+.search-input-wrapper input::placeholder {
+    color: #6b7280;
+}
+
+/* Clear Input Action Button */
+.clear-btn {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 90px;
+    border: none;
+    background: transparent;
+    color: rgb(107, 114, 128);
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.clear-btn:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.clear-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
 /* ===== FOOTER ===== */
 footer {
     border-top: 1px solid rgba(255, 255, 255, 0.05);
