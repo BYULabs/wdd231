@@ -97,3 +97,16 @@ export function fetchCurrentAnime() {
 export function fetchAnimeById(id) {
     return fetchJikanData(`/anime/${id}`, `Failed to fetch details for anime ID: ${id}`, `anime_detail_${id}`);
 }
+
+/**
+ * Searches the live anime catalog database by text queries.
+ * @param {string} query - The search query term.
+ */
+export function searchAnimeCatalog(query) {
+    const encodedQuery = encodeURIComponent(query.trim().toLowerCase());
+    return fetchJikanData(
+        `/anime?q=${encodedQuery}&sfw=true`, 
+        `Failed to execute catalog search for: ${query}`, 
+        `anime_search_${encodedQuery}`
+    );
+}

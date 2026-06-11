@@ -10,6 +10,7 @@ import { initAnimeDetails } from './anime-details.mjs';
 import { initBrowseCatalog } from './browse-catalog.mjs';
 import { initAnimeSchedule } from './schedule.mjs';
 import { initHeaderSearch } from './header-search.mjs';
+import { initAnimeSearch } from './search.mjs';
 
 /**
  * Fires automatically when the initial HTML document has been completely parsed,
@@ -30,4 +31,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initBrowseCatalog();  // Binds filtration engines and dynamic query states on the browse route
     initAnimeDetails();   // Captures active URL query parameters to construct data profile sheets
     initAnimeSchedule();  // Structures weekly programming broadcast release schedule tables
+    initAnimeSearch();
 });
