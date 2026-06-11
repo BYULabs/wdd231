@@ -2129,9 +2129,76 @@ nav.desktop-nav {
     }
 }
 
-.query-highlight {
-    color: #e63946;
-    font-weight: 600;
+/* Custom Search Grid Layout Extensions */
+.rating-badge-search {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    color: white;
+    background: rgba(13, 13, 20, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.rating-badge-search .star-icon {
+    width: 12px;
+    height: 12px;
+    fill: #facc15;
+    color: #facc15;
+}
+.card-studio-text {
+    color: #6b7280;
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: 3px;
+}
+
+/* Core Functional Utilities */
+.hidden {
+    display: none;
+}
+.flex {
+    display: flex;
+}
+.header-container .icon,
+#mobileMenu .icon {
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+
+/* System Animation Frames */
+@keyframes floatingPulse {
+    0%,
+    100% {
+        transform: translateY(0);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translateY(-6px);
+        opacity: 0.4;
+    }
+}
+.results-grid-animation {
+    animation: searchFadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes searchFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* ===== FOOTER ===== */
