@@ -2024,6 +2024,58 @@ nav.desktop-nav {
     height: 16px;
 }
 
+/* Live Stats Result Bar */
+.result-count-bar {
+    border-radius: 12px;
+    padding: 12px 20px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.result-count-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.result-count-left svg {
+    width: 16px;
+    height: 16px;
+    color: #e63946;
+}
+
+.result-count-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+}
+
+.result-clear-action {
+    background: transparent;
+    border: none;
+    color: rgb(156, 163, 175);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s ease;
+}
+
+.result-clear-action:hover {
+    color: white;
+}
+
+.result-clear-action svg {
+    width: 14px;
+    height: 14px;
+}
+
 /* ===== FOOTER ===== */
 footer {
     border-top: 1px solid rgba(255, 255, 255, 0.05);
