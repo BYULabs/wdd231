@@ -12,7 +12,7 @@ export async function initBrowseCatalog() {
   const filterSource = document.getElementById('filterSource'); // Dropdown for source material (Manga, Original, etc.)
   const filterGenre = document.getElementById('filterGenre');   // Dropdown for genres (Action, Romance, etc.)
   const filterSort = document.getElementById('filterSort');     // Dropdown for sorting order
-  const mainTitle = document.querySelector('.browse-main-title');
+  const mainTitle = document.getElementById('browseTitle');
 
   // Guard clause: Exit if the required layout elements are missing on the current page
   if (!grid || !filterSource || !filterGenre || !filterSort) return;
