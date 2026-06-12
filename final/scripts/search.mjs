@@ -68,9 +68,9 @@ export function initAnimeSearch() {
      */
     function renderCards(data) {
         animeGrid.innerHTML = '';
-        animeGrid.classList.remove('results-grid-animation');
+        animeGrid.classList.remove('search-results-grid-animation');
         void animeGrid.offsetWidth; // Force DOM browser reflow
-        animeGrid.classList.add('results-grid-animation');
+        animeGrid.classList.add('search-results-grid-animation');
 
         data.forEach(anime => {
             const displayTitle = getAnimeTitle(anime);
