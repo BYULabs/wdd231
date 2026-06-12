@@ -22,6 +22,9 @@ export function initHeaderSearch() {
          * Handles opening the search input or triggering a search if already open.
          */
         function openSearch(e) {
+            // If the user clicks the actual input text field, don't trigger navigate/close
+            if (e.target.tagName === 'INPUT') return;
+            
             e.preventDefault();
 
             // If the user clicks the button while the input is already open, treat it as a submit
@@ -31,14 +34,16 @@ export function initHeaderSearch() {
             }
 
             active = true;
+            btn.classList.add('is-active'); // Expands the button via CSS
 
             // Dynamically create the search input element
             input = document.createElement('input');
+            input.id = 'searchInput';
             input.type = 'text';
             input.placeholder = 'Search anime…';
             input.setAttribute('aria-label', 'Search anime');
 
-            // Apply inline styles to seamlessly blend the input into the button's design
+            // Blends input completely into the container button
             Object.assign(input.style, {
                 background: 'transparent',
                 border: 'none',
@@ -55,6 +60,7 @@ export function initHeaderSearch() {
             if (label) {
                 label.replaceWith(input);
             } else {
+                // For mobile, append the input after the SVG icon
                 btn.appendChild(input);
             }
 
@@ -65,6 +71,11 @@ export function initHeaderSearch() {
                 if (e.key === 'Enter') navigate();
                 if (e.key === 'Escape') closeSearch();
             });
+
+            // Closes the search if clicking outside of it
+            setTimeout(() => {
+                document.addEventListener('click', handleOutsideClick);
+            }, 0);
         }
 
         /**
@@ -87,6 +98,8 @@ export function initHeaderSearch() {
         function closeSearch() {
             if (!active) return;
             active = false;
+            btn.classList.remove('is-active'); // Shrinks the button back to a circle
+            document.removeEventListener('click', handleOutsideClick);
             
             // Revert the DOM back to its original layout
             if (label && input) {
@@ -94,10 +107,15 @@ export function initHeaderSearch() {
             } else if (input) {
                 input.remove(); // Just remove the input if there was no label
             }
-            input = null; // Clean up reference
+            input = null;
         }
 
-        // Trigger the search initialization on button click
+        function handleOutsideClick(e) {
+            if (!btn.contains(e.target)) {
+                closeSearch();
+            }
+        }
+
         btn.addEventListener('click', openSearch);
     }
 
