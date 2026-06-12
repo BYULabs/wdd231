@@ -135,5 +135,14 @@ export function initAnimeSearch() {
         searchTimeout = setTimeout(performSearch, 450);
     });
 
-    searchInput.focus();
+    // Parse URL query parameters and trigger initial search ---
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlQuery = urlParams.get('q');
+
+    if (urlQuery) {
+        searchInput.value = urlQuery.trim();
+        performSearch(); // Fire immediately for deep links to avoid layout flicker
+    } else {
+        searchInput.focus();
+    }
 }
