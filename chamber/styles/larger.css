@@ -155,6 +155,10 @@
         width: 100%;
     }
 
+    .places-grid div img:hover {
+        box-shadow: 0 0 50px #333;
+    }
+
     /* ========== FOOTER ========== */
     .footer-content {
         flex-direction: row;

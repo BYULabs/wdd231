@@ -1003,7 +1003,6 @@ input:required {
 
 .places-grid div h2 {
     grid-area: name;
-    color: var(--color-primary);
     font-size: 1.3rem;
     margin-bottom: 0.25rem;
 }
@@ -1016,10 +1015,6 @@ input:required {
     border-radius: 6px;
     margin-bottom: var(--spacing-xs);
     background-color: var(--color-soft-beige);
-}
-
-.places-grid div img:hover {
-    box-shadow: 0 0 50px #333;
 }
 
 .places-grid div p {
