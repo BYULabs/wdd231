@@ -9,6 +9,7 @@
     <meta name="description" id="metaDescription" content="Check the official anime release schedule on AniStream. Track weekly episode release dates, air times, and streaming updates for the current season.">
     <meta name="author" content="Sebastián Iturralde">
     <meta name="robots" content="index, follow">
+    <link rel="icon" href="favicon.ico">
 
     <!-- Open Graph / Facebook / Discord (Social Media Metadata Fallbacks) -->
     <meta property="og:type" content="website">
@@ -31,7 +32,8 @@
 
     <!-- Typography & Stylesheets -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/larger.css">
 
     <!-- Application Initialization Orchestrator -->
     <script type="module" src="scripts/main.mjs"></script>
@@ -77,7 +79,7 @@
     <!-- Mobile Slide Menu -->
     <div id="mobileOverlay"></div>
     <nav id="mobileMenu" class="mobile-menu">
-        <button id="mobileMenuClose" class="mobile-menu-close">
+        <button id="mobileMenuClose" class="mobile-menu-close" aria-label="Close mobile menu">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-lg"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
         </button>
         <a href="index.html">Home</a>
@@ -93,7 +95,7 @@
                     <div class="section-line"></div>
                     <h1 class="main-title">Weekly Release Schedule</h1>
                 </div>
-                <p class="subtitle">Stay updated with the exact broadcasting times for current seasonal titles</p>
+                <p class="page-subtitle">Stay updated with the exact broadcasting times for current seasonal titles</p>
             </div>
 
             <div class="day-tabs-scroll-container">
@@ -129,7 +131,7 @@
                 </div>
             </div>
 
-            <div id="scheduleGrid" class="anime-grid schedule-grid-layout results-grid-animation">
+            <div id="scheduleGrid" class="anime-grid grid-layout results-grid-animation">
                 </div>
 
         </div>
