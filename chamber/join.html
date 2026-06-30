@@ -65,129 +65,77 @@
         </ul>
     </div>
 
-    <main class="main-block">
-        <div class="join-container">
-            <h1>Join Our Chamber</h1>
-            <form method="GET" action="thankyou.html">
-                <fieldset>
-                    <legend>Member Information</legend>
-                    
-                    <div class="form-group">
-                        <label for="first-name">First Name <span class="required">*</span></label>
-                        <input 
-                            type="text" 
-                            id="first-name" 
-                            name="firstname" 
-                            title="First Name"
-                            autocomplete="given-name"
-                            required
-                        >
-                    </div>
+    <main class="container discover-layout join-page-layout">
+        <aside class="discover-sidebar">
+            <div class="card sidebar-widget">
+                <h3>¿Por qué unirse?</h3>
+                <p class="gold-line">Forma parte de la red de negocios más activa del Valle. Incrementa tu visibilidad, accede a capacitaciones y expande tus contactos comerciales.</p>
+            </div>
 
-                    <div class="form-group">
-                        <label for="last-name">Last Name <span class="required">*</span></label>
-                        <input 
-                            type="text" 
-                            id="last-name" 
-                            name="lastname" 
-                            title="Last Name"
-                            autocomplete="family-name"
-                            required
-                        >
-                    </div>
+            <div class="membership-info-stack">
+                <div class="card membership-card NP">
+                    <h4>Membresía NP (No Profit)</h4>
+                    <p class="price">Gratuito</p>
+                    <p>Diseñado exclusivamente para ONGs, fundaciones y organizaciones comunitarias sin fines de lucro en Cumbayá.</p>
+                </div>
+                
+                <div class="card membership-card bronze">
+                    <h4>Membresía Bronce</h4>
+                    <p class="price">$50 / año</p>
+                    <p>Ideal para nuevos emprendimientos. Incluye aparición básica en el directorio comercial y acceso a eventos mensuales.</p>
+                </div>
+                
+                <div class="card membership-card silver">
+                    <h4>Membresía Plata</h4>
+                    <p class="price">$150 / año</p>
+                    <p>Para negocios en crecimiento. Añade destaques prioritarios en búsquedas, descuentos en talleres y publicaciones patrocinadas.</p>
+                </div>
+                
+                <div class="card membership-card gold">
+                    <h4>Membresía Oro</h4>
+                    <p class="price">$300 / año</p>
+                    <p>Máximo nivel corporativo. Banners publicitarios en la página principal, invitaciones VIP a mesas redondas y soporte directo.</p>
+                </div>
+            </div>
+        </aside>
 
-                    <div class="form-group">
-                        <label for="org-title">Organizational Title</label>
-                        <input 
-                            type="text" 
-                            id="org-title" 
-                            name="org-title" 
-                            title="Organizational Title"
-                            autocomplete="organization-title"
-                            pattern="[a-zA-Z\s\-]{7,}"
-                            placeholder="Minimum 7 characters (letters, spaces, hyphens only)"
-                        >
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email Address <span class="required">*</span></label>
-                        <input 
-                            type="email" 
-                            id="email" 
-                            name="email" 
-                            title="Email Address"
-                            autocomplete="email"
-                            placeholder="user@example.com"
-                            required
-                        >
-                    </div>
-
-                    <div class="form-group">
-                        <label for="phone">Mobile Phone Number <span class="required">*</span></label>
-                        <input 
-                            type="tel" 
-                            id="phone" 
-                            name="phone" 
-                            title="Mobile Phone Number"
-                            autocomplete="tel"
-                            required
-                        >
-                    </div>
-                </fieldset>
-
-                <fieldset>
-                    <legend>Organization Information</legend>
-                    
-                    <div class="form-group">
-                        <label for="org-name">Business/Organization Name <span class="required">*</span></label>
-                        <input 
-                            type="text" 
-                            id="org-name" 
-                            name="org-name" 
-                            title="Organization Name"
-                            autocomplete="organization"
-                            required
-                        >
-                    </div>
-
-                    <div class="form-group">
-                        <label for="membership-level">Membership Level <span class="required">*</span></label>
-                        <select 
-                            id="membership-level" 
-                            name="membership-level"
-                            title="Membership Level"
-                            required
-                        >
-                            <option value="">-- Please Select a Membership Level --</option>
-                            <option value="np">NP Membership (Non-Profit - No Fee)</option>
-                            <option value="bronze">Bronze Membership</option>
-                            <option value="silver">Silver Membership</option>
-                            <option value="gold">Gold Membership</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="description">Business/Organization Description</label>
-                        <textarea 
-                            id="description" 
-                            name="description" 
-                            title="Organization Description"
-                            rows="5"
-                            placeholder="Tell us about your organization..."
-                        ></textarea>
-                    </div>
-                </fieldset>
-
-                <input 
-                    type="hidden" 
-                    id="timestamp" 
-                    name="timestamp"
-                >
-
-                <button type="submit" class="submit-btn">Join Now</button>
-            </form>
+        <section class="discover-content form-container-section">
+            <h1 class="section-title gold-line">Formulario de Afiliación</h1>
             
-        </div>
+            <form action="thankyou.html" method="get" class="card registration-form">
+                <fieldset>
+                    <legend>Información Personal</legend>
+                    <label>Nombre * <input type="text" name="firstname" required autocomplete="given-name"></label>
+                    <label>Apellido * <input type="text" name="lastname" required autocomplete="family-name"></label>
+                    <label>Título Organizacional / Cargo <input type="text" name="org-title" autocomplete="organization-title"></label>
+                    <label>Correo Electrónico * <input type="email" name="email" required placeholder="ejemplo@correo.com" autocomplete="email"></label>
+                    <label>Teléfono Móvil * <input type="tel" name="phone" required autocomplete="tel"></label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Datos de la Empresa</legend>
+                    <label>Nombre del Negocio / Organización * <input type="text" name="org-name" required autocomplete="organization"></label>
+                    
+                    <label>Nivel de Membresía *
+                        <select name="membership-level" required>
+                            <option value="" disabled selected>Selecciona una opción...</option>
+                            <option value="NP">No Profit (Sin fines de lucro)</option>
+                            <option value="bronze">Bronce</option>
+                            <option value="silver">Plata</option>
+                            <option value="gold">Oro</option>
+                        </select>
+                    </label>
+
+                    <label>Descripción del Negocio
+                        <textarea name="description" rows="4" placeholder="Cuéntanos brevemente a qué se dedica tu empresa..."></textarea>
+                    </label>
+                </fieldset>
+
+                <input type="hidden" id="timestamp" name="timestamp">
+
+                <button type="submit" class="btn submit-btn">Enviar Solicitud de Registro</button>
+            </form>
+        </section>
     </main>
 
     <!-- Footer -->
