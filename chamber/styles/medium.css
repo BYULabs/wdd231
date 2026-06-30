@@ -1,5 +1,5 @@
+/* Pantallas Medianas (Tabletas - 768px en adelante) */
 @media (min-width: 48rem) {
-    /* Tablets */
     .hero h1 {
         font-size: 3.5rem;
     }

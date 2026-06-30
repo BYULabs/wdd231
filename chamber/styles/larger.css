@@ -1,5 +1,5 @@
+/* Pantallas Grandes (Escritorio - 1024px en adelante) */
 @media (min-width: 64rem) {
-    /* Escritorio */
     .ham-btn {
         display: none;
     }

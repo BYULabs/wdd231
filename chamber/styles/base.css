@@ -1,3 +1,7 @@
+/* ==========================================================================
+   CÁMARA DE COMERCIO DE CUMBAYÁ - BASE CSS (Vanilla & Responsive)
+   ========================================================================== */
+
 /* === VARIABLES DE DISEÑO (Paleta de tu propuesta) === */
 :root {
     --navy-50: #e8ecf2;
@@ -278,7 +282,7 @@ header.scrolled {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* === GRID PRINCIPAL DE CONTENIDO (Layout Obligatorio BYU) === */
+/* === GRID PRINCIPAL DE CONTENIDO === */
 .main-layout {
     padding: 5rem 0;
     display: grid;
@@ -505,4 +509,58 @@ footer {
     color: white;
     font-size: 1.5rem;
     font-family: var(--font-display);
+}
+
+/* === VISITOR TOAST NOTIFICATION (NUEVO) === */
+.visitor-bubble {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--cream-50);
+    padding: 1rem 1.25rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px -5px rgba(12, 18, 38, 0.15);
+    border: 1px solid var(--cream-300);
+    transition:
+        opacity 0.4s ease,
+        transform 0.4s ease;
+}
+
+.visitor-bubble.hidden {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    pointer-events: none;
+}
+
+.bubble-avatar {
+    font-size: 1.5rem;
+    background-color: var(--navy-50);
+    padding: 0.5rem;
+    border-radius: 50%;
+    line-height: 1;
+}
+
+.bubble-content p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--navy-500);
+    font-weight: 500;
+}
+
+.bubble-close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--navy-500);
+    cursor: pointer;
+    line-height: 1;
+    align-self: flex-start;
+}
+
+.bubble-close-btn:hover {
+    color: var(--gold-500);
 }
