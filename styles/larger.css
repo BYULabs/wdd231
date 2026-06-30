@@ -1,76 +1,24 @@
-@media only screen and (min-width: 40rem) {
-    header {
+/* Responsiveness Breakpoints override matching larger.css logic */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+    .navigation {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(10, 10, 10, 0.95);
+        border-bottom: 1px solid var(--bg-card-border);
         padding: 1.5rem;
     }
-
-    .header-inter {
-        align-items: center;
-        padding-bottom: 1rem;
-    }
-
-    .hamburger {
-        display: none;
-    }
-
-    .navigation {
+    .navigation.show {
         display: block;
-        background: #2c3e50;
     }
-
     .navigation ul {
-        display: flex;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    .navigation li {
-        flex: 1;
-    }
-
-    .navigation a {
-        padding: 1rem 1.25rem;
-        text-align: center;
-        border-bottom: 3px solid transparent;
-    }
-
-    .navigation a:hover {
-        background-color: rgba(255, 255, 255, 0.08);
-    }
-
-    .navigation a.current {
-        background-color: rgba(255, 255, 255, 0.08);
-        border-bottom-color: white;
-    }
-
-    main {
-        padding: 3rem 2rem;
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        gap: 2rem;
-    }
-
-    main h1 {
-        font-size: 3rem;
-        grid-column: 1 / -1;
-    }
-
-    section {
-        padding: 3rem;
-    }
-
-    section h2 {
-        font-size: 2rem;
-    }
-
-    main section:nth-child(4) {
-        grid-column: 1 / -1;
-    }
-
-    .courses-container {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .filter-buttons {
-        justify-content: center;
+        flex-direction: column;
+        gap: 1.25rem;
+        align-items: flex-start;
     }
 }

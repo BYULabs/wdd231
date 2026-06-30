@@ -34,86 +34,95 @@
     <script src="scripts/scripts.js" type="module"></script>
 </head>
 
-<body>
-    <header>
-        <div class="header-inner">
-            <img src="images/byu-cougars-logo.svg" alt="BYU Cougars Logo" width="80" height="80">
-            <div class="site-heading">
-                <span>WDD 231 Home</span>
-                <p>Sebastián Iturralde</p>
-            </div>
-            <button id="ham-btn" class="hamburger"></button>
-        </div>
-    </header>
+<body class="noise-overlay hero-gradient">
 
-    <nav id="nav-bar" class="navigation">
+  <header>
+    <div class="header-inner">
+      <div class="brand-group">
+        <!-- SVG Graphic Native Embed: Clears dependency on external logo files if missing -->
+        <div class="brand-logo-container">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4"></path><path d="m6 8-4 4 4 4"></path><path d="m14.5 4-5 16"></path></svg>
+        </div>
+        <div class="site-heading">
+          <span>WDD 231 Home</span>
+          <p>Sebastián Iturralde</p>
+        </div>
+      </div>
+      <button id="ham-btn" class="hamburger" aria-label="Toggle Menu"></button>
+      <nav id="nav-bar" class="navigation">
         <ul>
-            <li><a href="index.html" class="current">Home</a></li>
-            <li><a href="chamber/">Chamber Project</a></li>
-            <li><a href="final/">Final Project</a></li>
+          <li><a href="index.html" class="current">Home</a></li>
+          <li><a href="chamber/">Chamber Project</a></li>
+          <li><a href="final/">Final Project</a></li>
         </ul>
-    </nav>
+      </nav>
+    </div>
+  </header>
 
-    <main>
-        <h1>Home</h1>
-        <section>
-            <h2>About Me</h2>
-            <p>Hi, I'm Sebastián Iturralde, from Ibarra, Ecuador, currently based in Quito. I began this journey as a
-                marketing instructor at ITQ, where I was encouraged to pursue certifications — and discovered an
-                unexpected passion for programming along the way.</p>
-            <p>That discovery led me to BYU Pathway's Web and Computer Programming Certificate, where I've studied
-                Python, C#, HTML, CSS, and JavaScript. I'm now finishing WDD 231 - Frontend Web Development I, the final
-                course of the certificate.</p>
-            <p>I'm a curious, self-driven learner. Welcome to my portfolio — explore my projects and see what I've been
-                building.</p>
+  <main>
+    <div class="hero-layout">
+      <div>
+        <h1 class="hero-title">Hello, I'm<br>Sebastián<span class="dot">.</span></h1>
+        <section class="about-content">
+          <h2>About Me</h2>
+          <p>Hi, I'm Sebastián Iturralde, from Ibarra, Ecuador, currently based in Quito. I began this journey as a marketing instructor at ITQ, where I was encouraged to pursue certifications — and discovered an unexpected passion for programming along the way.</p>
+          <p>That discovery led me to BYU Pathway's Web and Computer Programming Certificate, where I've studied Python, C#, HTML, CSS, and JavaScript. I'm now finishing WDD 231 - Frontend Web Development I, the final course of the certificate.</p>
+          <p>I'm a curious, self-driven learner. Welcome to my portfolio — explore my projects and see what I've been building.</p>
         </section>
-        <section>
-            <h2>Student Photo</h2>
-            <img src="images/profile-image.jpg"
-                alt="Portrait of Sebastián Iturralde wearing a white sun hat and blue tropical shirt, standing in a colorful flower garden outdoors.">
-        </section>
+      </div>
 
-        <section>
-            <h2>Web and Computer Programming Certificate Courses</h2>
-            <div class="filter-buttons">
-                <button id="all-btn" class="active">All</button>
-                <button id="cse-btn">CSE</button>
-                <button id="wdd-btn">WDD</button>
-            </div>
-            <div class="courses-container" id="courses-container"></div>
-            <p id="total-credits"></p>
-        </section>
-    </main>
-
-    <!-- Course Details Modal -->
-    <dialog id="course-modal" class="course-modal">
-        <div class="modal-content">
-            <button class="close-modal-btn" aria-label="Close modal">&times;</button>
-            <div id="modal-course-details"></div>
+      <div>
+        <div class="photo-frame">
+          <img src="images/profile-image.jpg" alt="Portrait of Sebastián Iturralde wearing a white sun hat and blue tropical shirt, standing in a colorful flower garden outdoors.">
         </div>
-    </dialog>
+      </div>
+    </div>
 
-    <footer>
-        <div class="social">
-            <a href="https://github.com/BYULabs/" target="_blank" rel="noreferrer">
-                <img src="images/github.svg" alt="Sebastián Iturralde GitHub profile" width="24" height="24">
-            </a>
+    <section>
+      <h2>Web and Computer Programming Certificate Courses</h2>
+      <div class="filter-buttons">
+        <button id="all-btn" class="active">All</button>
+        <button id="cse-btn">CSE</button>
+        <button id="wdd-btn">WDD</button>
+      </div>
+      <div class="courses-container" id="courses-container">
+        <!-- Injected dynamically by scripts.js module -->
+      </div>
+      <p id="total-credits"></p>
+    </section>
+  </main>
 
-            <a href="https://www.linkedin.com/in/ituSebastián/" target="_blank" rel="noreferrer">
-                <img src="images/linkedin.svg" alt="Sebastián Iturralde LinkedIn profile" width="24" height="24">
-            </a>
+  <!-- Course Details Modal Component Structure maintained -->
+  <dialog id="course-modal" class="course-modal">
+    <div class="modal-content">
+      <button class="close-modal-btn" aria-label="Close modal">&times;</button>
+      <div id="modal-course-details"></div>
+    </div>
+  </dialog>
 
-            <a href="https://www.behance.net/ituSebastián/" target="_blank" rel="noreferrer">
-                <img src="images/behance.svg" alt="Sebastián Iturralde Behance portfolio" width="24" height="24">
-            </a>
-
-            <a href="https://www.facebook.com/itulabs/" target="_blank" rel="noreferrer">
-                <img src="images/facebook.svg" alt="Sebastián Iturralde Facebook page" width="24" height="24">
-            </a>
-        </div>
+  <footer>
+    <div class="footer-inner">
+      <div class="social">
+        <a href="https://github.com/BYULabs/" target="_blank" rel="noreferrer">
+          <img src="images/github.svg" alt="Sebastián Iturralde GitHub profile">
+        </a>
+        <a href="https://www.linkedin.com/in/ituSebastián/" target="_blank" rel="noreferrer">
+          <img src="images/linkedin.svg" alt="Sebastián Iturralde LinkedIn profile">
+        </a>
+        <a href="https://www.behance.net/ituSebastián/" target="_blank" rel="noreferrer">
+          <img src="images/behance.svg" alt="Sebastián Iturralde Behance portfolio">
+        </a>
+        <a href="https://www.facebook.com/itulabs/" target="_blank" rel="noreferrer">
+          <img src="images/facebook.svg" alt="Sebastián Iturralde Facebook page">
+        </a>
+      </div>
+      <div>
         <p>&copy; <span id="current-year"></span> Sebastián Iturralde | Quito, Ecuador</p>
-        <p>Last Modification: <span id="last-modified"></span></p>
-    </footer>
+        <p style="margin-top: 0.4rem; opacity: 0.6;">Last Modification: <span id="last-modified"></span></p>
+      </div>
+    </div>
+  </footer>
+
 </body>
 
 </html>
