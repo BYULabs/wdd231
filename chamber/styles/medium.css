@@ -15,7 +15,11 @@
     .places-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+    .directory-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 Columnas en modo Grid */
+    }
     .footer-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+

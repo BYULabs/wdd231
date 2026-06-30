@@ -65,25 +65,32 @@
         </ul>
     </div>
 
-    <main class="main-block">
-        <section class="directory-header">
-            <h1>Business Directory</h1>
-            <p class="subtitle">Discover local businesses in Cumbayá</p>
-        </section>
-        
-        <div class="directory-controls">
-            <div class="view-toggle">
-                <button id="grid-view-btn" class="view-btn active" title="Grid view" aria-label="Grid view">
-                    <span>⊞</span>
-                </button>
-                <button id="list-view-btn" class="view-btn" title="List view" aria-label="List view">
-                    <span>☰</span>
-                </button>
+    <main class="container discover-layout">
+        <aside class="discover-sidebar">
+            <div class="card sidebar-widget">
+                <h3>Directorio Comercial</h3>
+                <p class="gold-line">Conoce y apoya a los comercios, emprendimientos y corporaciones que impulsan la economía del Valle de Cumbayá.</p>
             </div>
-        </div>
+            
+            <div class="card sidebar-widget">
+                <h3>Opciones de Vista</h3>
+                <div class="view-toggle-buttons">
+                    <button id="grid-view-btn" class="btn active" aria-label="Vista de Cuadrícula">
+                        📐 Cuadrícula
+                    </button>
+                    <button id="list-view-btn" class="btn" aria-label="Vista de Lista">
+                        📋 Lista
+                    </button>
+                </div>
+            </div>
+        </aside>
 
-        <div id="directory-container" class="directory-grid">
-        </div>
+        <section class="discover-content">
+            <h1 class="section-title gold-line">Miembros de la Cámara</h1>
+            
+            <div id="directory-container" class="directory-grid">
+                </div>
+        </section>
     </main>
 
     <!-- Footer -->
