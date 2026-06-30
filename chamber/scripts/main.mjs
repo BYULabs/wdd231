@@ -1,28 +1,26 @@
-import { initializeFooterDates } from './utils.mjs';
+import { initializeFooterDates, initVisitorMessage } from './utils.mjs'; 
 import { initNavigation } from './navigation.mjs';
 import { initDirectory } from './directory.mjs';
-import { initDiscoverPage, initVisitorMessage } from './discovery.mjs';
 import { initSpotlights } from './spotlights.mjs';
 import { initWeather } from './weather.mjs';
 import { initFormTimestamp, initThankYouResults } from './forms.mjs';
+import { initDiscoverPage } from './discovery.mjs';
 
-// Central setup function executed when DOM is parsed and ready
 function initApp() {
-    // 1. Fire global structures common to all site views
+    // 1. Estructuras globales comunes
     initializeFooterDates();
     initNavigation();
+    initVisitorMessage();
 
-    // 2. Fire conditional view features (only execute if elements exist)
+    // 2. Vistas condicionales
     initDirectory();
     initSpotlights();
     initWeather();
     initFormTimestamp();
     initThankYouResults();
     initDiscoverPage();
-    initVisitorMessage();
 }
 
-// Kickstart execution
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initApp);
 } else {
