@@ -27,16 +27,26 @@
 </head>
 
 <body>
-    <header>
-        <div class="header-inner">
-            <div class="logo-section">
-                <img src="images/cumbaya-logo.svg" alt="Cumbaya.city Logo" width="60" height="60" class="logo">
-                <div class="site-heading">
-                    <div class="site-title">Cumbaya.city</div>
-                    <p class="tagline">Valley Community Chamber</p>
+
+<!-- Navegación -->
+    <header id="main-header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo-box">
+                <div class="logo-badge">CC</div>
+                <div class="logo-text">
+                    <p>Cámara de Comercio</p>
+                    <p>Cumbayá · Ecuador</p>
                 </div>
-            </div>
-            <button id="ham-btn" class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Inicio</a></li>
+                <li><a href="discovery.html" class="nav-link">Descubrir</a></li>
+                <li><a href="directory.html" class="nav-link">Directorio</a></li>
+                <li><a href="join.html" class="btn-cta">Afíliese</a></li>
+            </ul>
+
+            <button class="ham-btn" id="open-btn" aria-label="Abrir Menú">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -44,149 +54,168 @@
         </div>
     </header>
 
-    <nav id="nav-bar" class="navigation">
-        <ul>
-            <li><a href="index.html" class="current" aria-current="page">Home</a></li>
-            <li><a href="discovery.html">Discover</a></li>
-            <li><a href="directory.html">Directory</a></li>
-            <li><a href="join.html">Join</a></li>
+    <!-- Menú Móvil -->
+    <div class="mobile-overlay" id="mobile-menu">
+        <button class="close-menu" id="close-btn">&times;</button>
+        <ul class="mobile-nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="discovery.html">Descubrir</a></li>
+            <li><a href="directory.html">Directorio</a></li>
+            <li><a href="join.html" style="color: var(--gold-400);">Afíliese Ahora</a></li>
         </ul>
-    </nav>
+    </div>
 
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Welcome to Cumbayá Chamber of Commerce</h1>
-                <p>Discover the vibrant community of local businesses in our beautiful valley</p>
-                <a href="join.html" class="cta-button">Join the Chamber</a>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-inner">
+            <div class="hero-tag">
+                <span style="width: 8px; height: 8px; background-color: var(--gold-400); border-radius: 50%;"></span>
+                Impulsando el desarrollo empresarial
+            </div>
+            <h1>Cámara de Comercio <br><span>Cumbayá</span></h1>
+            <p>Promovemos el crecimiento económico, la competitividad y el desarrollo sostenible de las empresas en nuestro querido Valle.</p>
+            <div class="hero-buttons">
+                <a href="join.html" class="btn-cta" style="padding: 1rem 2.5rem; font-size: 1rem;">Afíliese Ahora</a>
+                <a href="#eventos" class="btn-secondary">Conozca Más</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenido Principal Estructurado (Requerimiento BYU) -->
+    <main class="container main-layout">
+        
+        <!-- Sección de Eventos -->
+        <section id="eventos">
+            <h2 class="section-title gold-line">Próximos Eventos</h2>
+            <div class="events-grid">
+                <article class="card event-card">
+                    <h3>Foro de Innovación Empresarial</h3>
+                    <p class="event-meta">📅 Sábado, 15 de Julio, 2026 | 📍 Casa Cámara</p>
+                    <p>Conferencias magistrales sobre transformación digital, inteligencia artificial aplicada y desarrollo local sustentable.</p>
+                </article>
+
+                <article class="card event-card">
+                    <h3>Taller de Marketing Digital</h3>
+                    <p class="event-meta">📅 Jueves, 23 de Julio, 2026 | 📍 Modalidad Virtual</p>
+                    <p>Aprende herramientas prácticas de e-commerce y optimización de redes sociales para impulsar pequeñas y medianas empresas.</p>
+                </article>
+
+                <article class="card event-card">
+                    <h3>Cena de Networking del Valle</h3>
+                    <p class="event-meta">📅 Viernes, 7 de Agosto, 2026 | 📍 Hotel Cumbayá</p>
+                    <p>Una noche exclusiva de conexiones estratégicas entre empresarios, líderes del sector comercial y autoridades locales.</p>
+                </article>
             </div>
         </section>
 
-        <section class="events">
-            <h2>Upcoming Events</h2>
-            <div class="events-container">
-                <article class="event-card">
-                    <h3>Community Networking Breakfast</h3>
-                    <p class="event-date">Saturday, June 23, 2026</p>
-                    <p class="event-location">Cumbaya Community Center</p>
-                    <p class="event-description">Join us for coffee and connections with local business owners and community leaders.</p>
-                </article>
-                <article class="event-card">
-                    <h3>Spring Market Fair</h3>
-                    <p class="event-date">Saturday, July 1, 2026</p>
-                    <p class="event-location">Central Park, Cumbaya</p>
-                    <p class="event-description">Celebrate local artisans, farmers, and entrepreneurs at our seasonal market.</p>
-                </article>
-                <article class="event-card">
-                    <h3>Business Workshop: Digital Marketing</h3>
-                    <p class="event-date">Thursday, July 5, 2026</p>
-                    <p class="event-location">Virtual / Community Center</p>
-                    <p class="event-description">Learn how to grow your business online with practical digital marketing strategies.</p>
-                </article>
-                <article class="event-card">
-                    <h3>Summer Mixer & Networking Evening</h3>
-                    <p class="event-date">Friday, July 20, 2026</p>
-                    <p class="event-location">Cumbaya Valley Social Club</p>
-                    <p class="event-description">Connect with fellow chamber members and business professionals over refreshments and casual conversation.</p>
-                </article>
-                <article class="event-card">
-                    <h3>Annual Leadership Conference</h3>
-                    <p class="event-date">Saturday, August 10, 2026</p>
-                    <p class="event-location">Grand Ballroom, Cumbaya Resort</p>
-                    <p class="event-description">Keynote speakers, panel discussions, and networking opportunities for business leaders and entrepreneurs.</p>
-                </article>
-                
-            </div>
-        </section>
-
-        <section class="weather" id="weather-section">
-            <h2>Current Weather</h2>
-            <div class="weather-current">
-                <div class="weather-icon">⛅</div>
-                <div class="weather-details">
-                    <p class="temperature"><span id="current-temp">72</span>°F</p>
-                    <p class="condition" id="current-condition">Partly Cloudy</p>
-                    <ul class="weather-info">
-                        <li>High: <span id="temp-high">79</span>°F</li>
-                        <li>Low: <span id="temp-low">62</span>°F</li>
-                        <li>Humidity: <span id="humidity">65</span>%</li>
-                        <li>Sunrise: <span id="sunrise">6:15 AM</span></li>
-                        <li>Sunset: <span id="sunset">6:45 PM</span></li>
-                    </ul>
+        <!-- Widgets de Clima y Pronóstico Lateral -->
+        <aside class="widgets-wrapper" id="clima">
+            <section class="card">
+                <h3 style="margin-bottom: 1rem;">Estado del Clima</h3>
+                <div class="weather-display">
+                    <!-- Icono dinámico -->
+                    <div class="weather-icon" id="current-icon">⛅</div> 
+                    <div>
+                        <!-- Temperatura y condición dinámicas -->
+                        <p class="temp-main"><span id="current-temp">--</span>°C</p>
+                        <p style="color: var(--andean-400); font-weight: 500;" id="current-condition">Cargando...</p>
+                    </div>
                 </div>
-            </div>
-        </section>
+                <ul class="weather-list">
+                    <li><strong>Humedad:</strong> <span id="humidity">--</span>%</li>
+                    <li><strong>Sensación Térmica:</strong> <span id="feels-like">--</span>°C</li>
+                    <li><strong>Amanecer:</strong> <span id="sunrise">--</span></li>
+                    <li><strong>Atardecer:</strong> <span id="sunset">--</span></li>
+                </ul>
+            </section>
 
-        <section class="forecast">
-            <h2>3-Day Forecast</h2>
-            <div class="forecast-container">
-                <div class="forecast-card">
-                    <h3>Today</h3>
-                    <p class="forecast-icon" id="forecast-today-icon">⛅</p>
-                    <p class="forecast-temp">High: <span id="forecast-today-high">79</span>°F</p>
-                    <p class="forecast-condition" id="forecast-today-condition">Partly Cloudy</p>
+            <section class="card">
+                <h3 style="margin-bottom: 1rem;">Pronóstico de 3 Días</h3>
+                <div class="forecast-grid" id="forecast-container">
+                    <!-- Los bloques se generarán dinámicamente con JavaScript -->
+                    <p style="grid-column: 1/-1; text-align: center; color: var(--navy-300);">Cargando pronóstico...</p>
                 </div>
-                <div class="forecast-card">
-                    <h3>Tomorrow</h3>
-                    <p class="forecast-icon" id="forecast-tomorrow-icon">☀️</p>
-                    <p class="forecast-temp">High: <span id="forecast-tomorrow-high">81</span>°F</p>
-                    <p class="forecast-condition" id="forecast-tomorrow-condition">Sunny</p>
-                </div>
-                <div class="forecast-card">
-                    <h3>Day After</h3>
-                    <p class="forecast-icon" id="forecast-next-icon">🌦️</p>
-                    <p class="forecast-temp">High: <span id="forecast-next-high">77</span>°F</p>
-                    <p class="forecast-condition" id="forecast-next-condition">Partly Cloudy</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="spotlights">
-            <h2>Featured Businesses</h2>
-            <div class="spotlights-container">
-            </div>
-        </section>
+            </section>
+        </aside>
     </main>
 
+    <!-- Sección de Afiliados Destacados (Spotlights Obligatorio) -->
+    <section class="spotlights-section" id="afiliados">
+        <div class="container">
+            <h2 class="section-title gold-line-center" style="text-align: center;">Afiliados Destacados</h2>
+            <!-- Modifica esta línea para que tenga la clase que usará el script -->
+            <div class="spotlights-grid spotlights-container">
+                <!-- Los artículos de afiliados se generarán dinámicamente con JavaScript -->
+                <p style="text-align: center; color: var(--navy-300); width: 100%; grid-column: 1/-1;">Cargando afiliados destacados...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-info">
-                <h2>Cumbaya.city Chamber of Commerce</h2>
-                <address>
-                    <p>Cumbayá, Pichicha</p>
-                    <p>Ecuador 071517</p>
-                    <p>📧 <a href="mailto:info@cumbaya.city">info@cumbaya.city</a></p>
-                    <p>📱 <a href="tel:+593963519138">+593 96-351-9138</a></p>
-                </address>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h3>Cámara de Comercio <span>Cumbayá</span></h3>
+                <p>Promoviendo el desarrollo y el tejido empresarial de nuestra parroquia desde 1999.</p>
             </div>
-            <div class="social">
-                <a href="#" target="_blank" rel="noreferrer" aria-label="Facebook">
-                    <img src="images/facebook.svg" alt="Facebook" width="24" height="24">
-                </a>
-                <a href="#" target="_blank" rel="noreferrer" aria-label="Instagram">
-                    <img src="images/instagram.svg" alt="Instagram" width="24" height="24">
-                </a>
-                <a href="#" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-                    <img src="images/linkedin.svg" alt="LinkedIn" width="24" height="24">
-                </a>
+            <div class="footer-links">
+                <h4>Contacto</h4>
+                <p>📍 Av. General Eloy Alfaro y Av. Inti, Cumbayá</p>
+                <p>📧 info@camaracumbaya.ec</p>
+                <p>📱 +593 2-289-XXXX</p>
             </div>
-            <div class="footer-bottom">
-                <p>WDD321 Class Project</p>
-                <p>Sebastián Iturralde</p>
-                <p>&copy; <span id="current-year"></span> Cumbaya.city Chamber of Commerce</p>
-                <p>Last Updated: <span id="last-modified"></span></p>
+            <div class="footer-links">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#eventos">Eventos</a></li>
+                    <li><a href="#clima">Clima</a></li>
+                    <li><a href="join.html">Afiliación</a></li>
+                </ul>
             </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>Proyecto del Curso WDD231 · Sebastián Iturralde</p>
+            <p>&copy; <span id="current-year"></span> Cámara de Comercio de Cumbayá</p>
+            <p>Última modificación: <span id="last-modified"></span></p>
         </div>
     </footer>
 
-    <!-- Floating Visitor Chat Bubble / Toast Notification -->
-    <div id="visitor-toast" class="visitor-bubble hidden" role="status">
-        <div class="bubble-avatar">🔔</div>
-        <div class="bubble-content">
-            <p id="visitor-message">Welcome! Let us know if you have any questions.</p>
-        </div>
-        <button id="close-bubble" class="bubble-close-btn" aria-label="Close message">&times;</button>
-    </div>
-    
+    <!-- Vanilla Javascript Interactivo -->
+    <script>
+        // === NAVBAR SCROLL EFFECT ===
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // === MOBILE MENU TOGGLE ===
+        const openBtn = document.getElementById('open-btn');
+        const closeBtn = document.getElementById('close-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        openBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+
+        // Cerrar menú al dar click a una opción móvil
+        document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // === REQUERIMIENTO BYU DATES (Manejo dinámico de fechas) ===
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        document.getElementById('last-modified').textContent = document.lastModified;
+    </script>
 </body>
 </html>

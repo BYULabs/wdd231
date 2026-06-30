@@ -1,4 +1,4 @@
-import { memberData } from '../data/members.mjs'; // Direct static import
+import { memberData } from '../data/members.mjs';
 
 function getRandomMembers(array, count) {
     const limit = Math.min(count, array.length);
@@ -8,40 +8,48 @@ function getRandomMembers(array, count) {
 
 function createSpotlightCard(member) {
     const card = document.createElement('article');
-    card.className = 'spotlight-card';
-    const membershipBadge = member.membership.charAt(0).toUpperCase() + member.membership.slice(1);
+
+    // Usamos las clases exactas de tu nuevo diseño limpio sin Tailwind
+    card.className = 'card spotlight-card';
+    
+    // Mapeo e internacionalización de los niveles de membresía
+    const badgeClass = member.membership === 'gold' ? 'badge-gold' : 'badge-silver';
+    const badgeText = member.membership === 'gold' ? 'Membresía Oro' : 'Membresía Plata';
     
     card.innerHTML = `
-        <div class="spotlight-header">
-            <div class="spotlight-image">${member.logo}</div>
-            <span class="membership-badge membership-${member.membership}">${membershipBadge}</span>
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+            <span class="badge ${badgeClass}">${badgeText}</span>
+            <span style="font-size: 1.75rem; line-height: 1;">${member.logo}</span>
         </div>
-        <h3>${member.name}</h3>
-        <p class="spotlight-category">${member.category}</p>
-        <div class="spotlight-info">
-            <p><strong>Address:</strong> ${member.address}</p>
-            <p><strong>Phone:</strong> <a href="${member.phoneLink}">${member.phone}</a></p>
-            <p><strong>Website:</strong> <a href="${member.website}" target="_blank" rel="noreferrer">${member.website}</a></p>
+        <h3 style="margin-bottom: 0.5rem;">${member.name}</h3>
+        <p style="font-size: 0.85rem; color: var(--andean-400); font-weight: 500; margin-bottom: 1rem; text-transform: uppercase;">
+            ${member.category}
+        </p>
+        <p style="font-size: 0.95rem; margin-bottom: 1rem; color: var(--navy-300);">
+            <strong>Dirección:</strong> ${member.address}
+        </p>
+        <div style="font-size: 0.85rem; margin-top: auto; display: flex; flex-direction: column; gap: 0.25rem;">
+            <p>📞 Tel: <a href="${member.phoneLink}" style="color: var(--navy-500); font-weight: 500;">${member.phone}</a></p>
+            <p>🌐 <a href="${member.website}" target="_blank" rel="noreferrer" style="color: var(--gold-500); font-weight: 600;">Visitar sitio web →</a></p>
         </div>
-        <a href="${member.website}" target="_blank" rel="noreferrer" class="spotlight-link">Visit Website →</a>
     `;
     return card;
 }
 
-// Notice: "async" is removed here as well
 export function initSpotlights() {
     const container = document.querySelector('.spotlights-container');
     if (!container) return;
 
     try {
-        // Filter directly from the imported object
+        // Filtrar afiliados con niveles Premium (oro y plata)
         const premiumMembers = memberData.businesses.filter(
             m => m.membership === 'gold' || m.membership === 'silver'
         );
 
         if (premiumMembers.length === 0) return;
 
-        const randomCount = Math.floor(Math.random() * 2) + 2; 
+        // Obtener aleatoriamente entre 2 y 3 miembros para rellenar la grilla
+        const randomCount = Math.floor(Math.random() * 2) + 2;
         const selectedMembers = getRandomMembers(premiumMembers, randomCount);
 
         container.innerHTML = '';
@@ -49,6 +57,6 @@ export function initSpotlights() {
             container.appendChild(createSpotlightCard(member));
         });
     } catch (error) {
-        console.error('Error loading spotlights:', error);
+        console.error('Error al cargar la sección de afiliados destacados:', error);
     }
 }
