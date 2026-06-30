@@ -65,10 +65,28 @@
         </ul>
     </div>
 
-    <main class="main-block">
-        <h1>Submission Information</h1>
+    <main class="container discover-layout thanks-page-layout">
+        <!-- Barra Lateral Izquierda: Mensaje de Éxito / Próximos pasos -->
+        <aside class="discover-sidebar">
+            <div class="card sidebar-widget">
+                <h3>¡Registro Recibido!</h3>
+                <p class="gold-line">Tu solicitud ha sido registrada con éxito en nuestro sistema central.</p>
+            </div>
+            <div class="card sidebar-widget">
+                <h3>¿Qué sigue ahora?</h3>
+                <p>Nuestro equipo revisará los datos de tu organización. En un lapso no mayor a 48 horas laborables recibirás un correo electrónico de confirmación con las credenciales de tu cuenta de afiliado.</p>
+            </div>
+            <!-- Botón de retorno rápido para mejorar la navegación -->
+            <a href="index.html" class="btn-back-home">← Volver al Inicio</a>
+        </aside>
 
-        <div id="results"></div>        
+        <!-- Contenido Principal: Información Inyectada por JavaScript -->
+        <section class="discover-content">
+            <h1 class="section-title gold-line">Resumen del Registro</h1>
+            
+            <!-- Aquí el script forms.mjs inyectará la sección .submission-details -->
+            <div id="results"></div>        
+        </section>
     </main>
 
     <!-- Footer -->

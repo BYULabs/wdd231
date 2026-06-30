@@ -21,6 +21,13 @@
     .registration-form {
         padding: 1.5rem;
     }
+    .submission-details {
+        padding: 1.5rem;
+    }
+    .submission-details p strong {
+        display: block; /* En móviles las etiquetas van arriba del dato */
+        margin-bottom: 0.15rem;
+    }
     .footer-grid {
         grid-template-columns: repeat(2, 1fr);
     }

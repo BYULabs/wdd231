@@ -603,7 +603,8 @@ body.home-page #main-header.scrolled {
     margin-bottom: 0.5rem;
 }
 
-.business-address, .business-phone {
+.business-address,
+.business-phone {
     font-size: 0.9rem;
     color: #555;
     line-height: 1.4;
@@ -653,7 +654,8 @@ body.home-page #main-header.scrolled {
     transition: var(--transition);
 }
 
-.view-toggle-buttons .btn.active, .view-toggle-buttons .btn:hover {
+.view-toggle-buttons .btn.active,
+.view-toggle-buttons .btn:hover {
     background-color: var(--navy-500);
     color: white;
     border-color: var(--navy-500);
@@ -730,10 +732,18 @@ body.home-page #main-header.scrolled {
 }
 
 /* Distinciones de color sutiles por nivel */
-.membership-card.NP { border-left-color: #888; }
-.membership-card.bronze { border-left-color: #cd7f32; }
-.membership-card.silver { border-left-color: #ccc; }
-.membership-card.gold { border-left-color: var(--gold-400); }
+.membership-card.NP {
+    border-left-color: #888;
+}
+.membership-card.bronze {
+    border-left-color: #cd7f32;
+}
+.membership-card.silver {
+    border-left-color: #ccc;
+}
+.membership-card.gold {
+    border-left-color: var(--gold-400);
+}
 
 .membership-card:hover {
     transform: translateX(5px);
@@ -817,6 +827,79 @@ body.home-page #main-header.scrolled {
 .submit-btn:hover {
     background-color: var(--gold-500);
     box-shadow: 0 4px 15px rgba(184, 146, 46, 0.3);
+}
+
+/* ==========================================================================
+   PÁGINA DE AGRADECIMIENTO (THANKYOU) - RESUMEN DINÁMICO
+   ========================================================================== */
+
+/* Tarjeta contenedora generada por JS */
+.submission-details {
+    background-color: var(--cream-50);
+    border: 1px solid rgba(235, 224, 197, 0.6);
+    border-radius: 1rem;
+    padding: 2.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+/* Títulos internos del resumen (Información Personal, Datos de la Empresa) */
+.submission-details h2 {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    color: var(--navy-500);
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 2px solid var(--cream-200);
+}
+
+.submission-details h2:first-of-type {
+    margin-top: 0; /* Quita el margen superior al primer título */
+}
+
+/* Líneas de datos */
+.submission-details p {
+    font-size: 0.95rem;
+    color: var(--navy-800);
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+}
+
+.submission-details p strong {
+    color: var(--navy-500);
+    font-weight: 600;
+    display: inline-block;
+    min-width: 140px; /* Alinea las etiquetas para que se vea ordenado */
+}
+
+/* Párrafo final de agradecimiento o fecha */
+.submission-details p:last-of-type {
+    margin-top: 2rem;
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    color: var(--andean-400);
+    font-weight: 700;
+    text-align: center;
+}
+
+/* Botón personalizado de retorno en la barra lateral */
+.btn-back-home {
+    display: inline-block;
+    text-align: center;
+    background-color: var(--navy-500);
+    color: white;
+    padding: 0.85rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.btn-back-home:hover {
+    background-color: var(--gold-400);
+    color: var(--navy-800);
+    box-shadow: 0 4px 12px rgba(212, 168, 67, 0.2);
 }
 
 /* === FOOTER === */
