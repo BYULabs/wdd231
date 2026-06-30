@@ -12,6 +12,31 @@
     .spotlights-grid {
         grid-template-columns: repeat(3, 1fr);
     }
+    .discover-layout {
+        grid-template-columns: 1fr 3fr; /* Sidebar izquierda angosta, contenido ancho */
+    }
+
+    .places-grid {
+        grid-template-columns: repeat(
+            2,
+            1fr
+        ); /* Mantiene 2 columnas en su espacio correspondiente */
+    }
+
+    /* En pantallas grandes cambiamos la tarjeta interna a un layout horizontal */
+    .place-card > div {
+        grid-template-columns: 200px 1fr;
+        grid-template-areas:
+            "photograph name"
+            "photograph location"
+            "photograph description";
+        align-content: start;
+    }
+
+    .place-card img {
+        height: 100%;
+        min-height: 160px;
+    }
     .footer-grid {
         grid-template-columns: repeat(3, 1fr);
     }

@@ -117,6 +117,25 @@ header.scrolled {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
+#main-header {
+    background-color: var(--navy-500);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: var(--transition);
+}
+
+body.home-page #main-header {
+    background-color: transparent;
+}
+
+body.home-page #main-header.scrolled {
+    background-color: var(--navy-500);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
 .nav-container {
     display: flex;
     align-items: center;
@@ -413,6 +432,109 @@ header.scrolled {
 .badge-silver {
     background-color: #e2e3e5;
     color: #383d41;
+}
+
+/* ==========================================================================
+   PÁGINA DE DISCOVERY - ESTILOS ADAPTADOS AL SISTEMA BASE
+   ========================================================================== */
+
+/* Layout general de Discovery */
+.discover-layout {
+    padding: 7rem 0 5rem 0; /* Espacio superior para el header fixed */
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
+.discover-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.sidebar-widget h3 {
+    color: var(--navy-500);
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+}
+
+/* Título de la sección */
+.discover-content .section-title {
+    margin-bottom: 2.5rem;
+}
+
+/* Contenedor de las tarjetas inyectadas */
+.places-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+/* Tarjeta generada dinámicamente (.place-card) */
+.place-card {
+    background-color: var(--cream-50);
+    border: 1px solid rgba(235, 224, 197, 0.6);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+}
+
+.place-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 25px -5px rgba(27, 42, 74, 0.1);
+    border-color: var(--gold-300);
+}
+
+/* Estructura interna de la tarjeta usando CSS Grid */
+.place-card > div {
+    display: grid;
+    grid-template-areas:
+        "photograph"
+        "name"
+        "location"
+        "description";
+    gap: 1rem;
+}
+
+.place-card h2 {
+    grid-area: name;
+    font-size: 1.4rem;
+    color: var(--navy-500);
+}
+
+.place-card img {
+    grid-area: photograph;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    background-color: var(--cream-200);
+}
+
+.place-card p {
+    grid-area: description;
+    font-size: 0.95rem;
+    color: var(--navy-500);
+    line-height: 1.6;
+}
+
+.place-card address {
+    grid-area: location;
+    font-style: normal;
+    font-size: 0.85rem;
+    color: var(--andean-400);
+    font-weight: 600;
+}
+
+/* No results text */
+.no-results {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    color: var(--navy-500);
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem 0;
 }
 
 /* === FOOTER === */
