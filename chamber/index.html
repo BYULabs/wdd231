@@ -181,41 +181,5 @@
         </div>
     </footer>
 
-    <!-- Vanilla Javascript Interactivo -->
-    <script>
-        // === NAVBAR SCROLL EFFECT ===
-        const header = document.getElementById('main-header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        // === MOBILE MENU TOGGLE ===
-        const openBtn = document.getElementById('open-btn');
-        const closeBtn = document.getElementById('close-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        openBtn.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
-        });
-
-        closeBtn.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-        });
-
-        // Cerrar menú al dar click a una opción móvil
-        document.querySelectorAll('.mobile-nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-            });
-        });
-
-        // === REQUERIMIENTO BYU DATES (Manejo dinámico de fechas) ===
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-        document.getElementById('last-modified').textContent = document.lastModified;
-    </script>
 </body>
 </html>
