@@ -27,16 +27,26 @@
 </head>
 
 <body>
-    <header>
-        <div class="header-inner">
-            <div class="logo-section">
-                <img src="images/cumbaya-logo.svg" alt="Cumbaya.city Logo" width="60" height="60" class="logo">
-                <div class="site-heading">
-                    <div class="site-title">Cumbaya.city</div>
-                    <p class="tagline">Valley Community Chamber</p>
+
+    <!-- Navegación -->
+    <header id="main-header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo-box">
+                <div class="logo-badge">CC</div>
+                <div class="logo-text">
+                    <p>Cámara de Comercio</p>
+                    <p>Cumbayá · Ecuador</p>
                 </div>
-            </div>
-            <button id="ham-btn" class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Inicio</a></li>
+                <li><a href="discovery.html" class="nav-link">Descubrir</a></li>
+                <li><a href="directory.html" class="nav-link active">Directorio</a></li>
+                <li><a href="join.html" class="btn-cta">Afíliese</a></li>
+            </ul>
+
+            <button class="ham-btn" id="open-btn" aria-label="Abrir Menú">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -44,14 +54,16 @@
         </div>
     </header>
 
-    <nav id="nav-bar" class="navigation">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="discovery.html">Discover</a></li>
-            <li><a href="directory.html" class="current" aria-current="page">Directory</a></li>
-            <li><a href="join.html">Join</a></li>
+    <!-- Menú Móvil -->
+    <div class="mobile-overlay" id="mobile-menu">
+        <button class="close-menu" id="close-btn">&times;</button>
+        <ul class="mobile-nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="discovery.html">Descubrir</a></li>
+            <li><a href="directory.html">Directorio</a></li>
+            <li><a href="join.html" style="color: var(--gold-400);">Afíliese Ahora</a></li>
         </ul>
-    </nav>
+    </div>
 
     <main class="main-block">
         <section class="directory-header">
@@ -74,34 +86,33 @@
         </div>
     </main>
 
+    <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-info">
-                <h2>Cumbaya.city Chamber of Commerce</h2>
-                <address>
-                    <p>Cumbayá, Pichicha</p>
-                    <p>Ecuador 071517</p>
-                    <p>📧 <a href="mailto:info@cumbaya.city">info@cumbaya.city</a></p>
-                    <p>📱 <a href="tel:+593963519138">+593 96-351-9138</a></p>
-                </address>
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h3>Cámara de Comercio <span>Cumbayá</span></h3>
+                <p>Promoviendo el desarrollo y el tejido empresarial de nuestra parroquia desde 1999.</p>
             </div>
-            <div class="social">
-                <a href="#" target="_blank" rel="noreferrer" aria-label="Facebook">
-                    <img src="images/facebook.svg" alt="Facebook" width="24" height="24">
-                </a>
-                <a href="#" target="_blank" rel="noreferrer" aria-label="Instagram">
-                    <img src="images/instagram.svg" alt="Instagram" width="24" height="24">
-                </a>
-                <a href="#" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-                    <img src="images/linkedin.svg" alt="LinkedIn" width="24" height="24">
-                </a>
+            <div class="footer-links">
+                <h4>Contacto</h4>
+                <p>📍 Av. General Eloy Alfaro y Av. Inti, Cumbayá</p>
+                <p>📧 info@camaracumbaya.ec</p>
+                <p>📱 +593 2-289-XXXX</p>
             </div>
-            <div class="footer-bottom">
-                <p>WDD321 Class Project</p>
-                <p>Sebastián Iturralde</p>
-                <p>&copy; <span id="current-year"></span> Cumbaya.city Chamber of Commerce</p>
-                <p>Last Updated: <span id="last-modified"></span></p>
+            <div class="footer-links">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#eventos">Eventos</a></li>
+                    <li><a href="#clima">Clima</a></li>
+                    <li><a href="join.html">Afiliación</a></li>
+                </ul>
             </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>Proyecto del Curso WDD231 · Sebastián Iturralde</p>
+            <p>&copy; <span id="current-year"></span> Cámara de Comercio de Cumbayá</p>
+            <p>Última modificación: <span id="last-modified"></span></p>
         </div>
     </footer>
 
@@ -109,9 +120,9 @@
     <div id="visitor-toast" class="visitor-bubble hidden" role="status">
         <div class="bubble-avatar">🔔</div>
         <div class="bubble-content">
-            <p id="visitor-message">Welcome! Let us know if you have any questions.</p>
+            <p id="visitor-message">Cargando saludo...</p>
         </div>
-        <button id="close-bubble" class="bubble-close-btn" aria-label="Close message">&times;</button>
+        <button id="close-bubble" class="bubble-close-btn" aria-label="Cerrar mensaje">&times;</button>
     </div>
     
 </body>

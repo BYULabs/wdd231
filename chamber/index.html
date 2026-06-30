@@ -28,7 +28,7 @@
 
 <body>
 
-<!-- Navegación -->
+    <!-- Navegación -->
     <header id="main-header">
         <div class="container nav-container">
             <a href="index.html" class="logo-box">
@@ -180,6 +180,15 @@
             <p>Última modificación: <span id="last-modified"></span></p>
         </div>
     </footer>
+
+    <!-- Floating Visitor Chat Bubble / Toast Notification -->
+    <div id="visitor-toast" class="visitor-bubble hidden" role="status">
+        <div class="bubble-avatar">🔔</div>
+        <div class="bubble-content">
+            <p id="visitor-message">Cargando saludo...</p>
+        </div>
+        <button id="close-bubble" class="bubble-close-btn" aria-label="Cerrar mensaje">&times;</button>
+    </div>
 
 </body>
 </html>
